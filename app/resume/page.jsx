@@ -9,13 +9,8 @@ import {
   FaNodeJs,
   FaAngular,
 } from "react-icons/fa";
-
-import {
-  SiTailwindcss,
-  SiNextdotjs,
-  SiFlutter,
-  SiKotlin,
-} from "react-icons/si";
+import { SiNextdotjs, SiFlutter, SiKotlin } from "react-icons/si";
+import classes from "./page.module.scss";
 
 // about data
 const about = {
@@ -64,11 +59,13 @@ const experience = {
       company: "Tekov",
       position: "Desarrollador Front/Móvil",
       duration: "Noviembre 2022 - Presente",
+      job: {},
     },
     {
       company: "Clan Bolivia",
       position: "Desarrollador Front/Móvil",
       duration: "Diciembre 2022 - Febrero 2023",
+      job: {},
     },
     {
       company: "AM Consultora y Asesora en salud",
@@ -157,6 +154,17 @@ import {
 
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
+import {
+  ArrowDown,
+  ArrowRight,
+  ChevronDown,
+  ChevronRight,
+  ChevronRightCircle,
+  LucideArrowBigRight,
+  MoveRight,
+} from "lucide-react";
+import { cn } from "@/lib/utils";
+import { FaRightFromBracket, FaRightLong } from "react-icons/fa6";
 
 const Resume = () => {
   return (
@@ -189,13 +197,16 @@ const Resume = () => {
                 <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
                   {experience.description}
                 </p>
-                <ScrollArea className="h-[400px]">
+                <ScrollArea className="h-[70vh]">
                   <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
                     {experience.items.map((item, index) => {
                       return (
                         <li
                           key={index}
-                          className="bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
+                          className={cn(
+                            "bg-[#232329]  py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 relative",
+                            item.details && "cursor-pointer"
+                          )}
                         >
                           <span className="text-accent">{item.duration}</span>
                           <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
@@ -206,6 +217,31 @@ const Resume = () => {
                             <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
                             <p className="text-white/60">{item.company}</p>
                           </div>
+
+                          {item.job && (
+                            <div className={classes.job}>
+                              <p className="text-sm text-white/60">
+                                Startup dedicada al desarrollo un software para
+                                la automatización de los procesos
+                                administrativos de recursos humanos.
+                              </p>
+                              <div className={classes.details}>
+                                <div className={classes.detail}>
+                                  <LucideArrowBigRight
+                                    className={cn(
+                                      "text-white/60",
+                                      classes.icon
+                                    )}
+                                  />
+                                  <p>1</p>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+
+                          {item.job && (
+                            <ChevronDown className="absolute bottom-5 right-5" />
+                          )}
                         </li>
                       );
                     })}

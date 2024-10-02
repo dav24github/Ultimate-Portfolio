@@ -1,0 +1,20 @@
+.job {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.details {
+  margin-top: 10px;
+}
+
+.detail {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.icon {
+  z-index: 9999;
+  transform: scale(0.8);
+}
