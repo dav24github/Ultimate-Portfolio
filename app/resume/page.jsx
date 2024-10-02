@@ -16,7 +16,7 @@ import classes from "./page.module.scss";
 const about = {
   title: "Acerca de mi",
   description:
-    "Soy desarrollador de software con más de 3 años de experiencia, licenciado en Ciencia de la Computación, enfocado principalmente en el desarrollo web. Altamente motivado por aprender y compartir mis habilidades.",
+    "Soy desarrollador de software con más de 3 años de experiencia, licenciado en Ciencia de la Computación con excelencia académica, enfocado principalmente en el desarrollo web. Me impulsa la pasión por aprender y el compromiso de compartir mis habilidades con los demás.",
   info: [
     {
       fieldName: "Nombre",
@@ -174,14 +174,14 @@ const Resume = () => {
         opacity: 1,
         transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
       }}
-      className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0"
+      className="min-h-[80vh] flex items-center justify-center py-12"
     >
       <div className="container mx-auto">
         <Tabs
           defaultValue="experience"
           className="flex flex-col xl:flex-row gap-[60px]"
         >
-          <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
+          <TabsList className="flex flex-col w-full max-w-[340px] mx-auto xl:mx-0 gap-6">
             <TabsTrigger value="experience">Experiencia</TabsTrigger>
             <TabsTrigger value="education">Formación</TabsTrigger>
             <TabsTrigger value="skills">Habilidades</TabsTrigger>
@@ -205,16 +205,18 @@ const Resume = () => {
                           key={index}
                           className={cn(
                             "bg-[#232329]  py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 relative",
-                            item.details && "cursor-pointer"
+                            item.job && "cursor-pointer"
                           )}
                         >
-                          <span className="text-accent">{item.duration}</span>
+                          <span className="text-accent text-sm">
+                            {item.duration}
+                          </span>
                           <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
                             {item.position}
                           </h3>
-                          <div className="flex items-center gap-3">
+                          <div className="flex gap-3">
                             {/* dot */}
-                            <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
+                            <span className="w-[6px] h-[6px] rounded-full bg-accent mt-3"></span>
                             <p className="text-white/60">{item.company}</p>
                           </div>
 
@@ -225,6 +227,9 @@ const Resume = () => {
                                 la automatización de los procesos
                                 administrativos de recursos humanos.
                               </p>
+                              <p className="text-sm text-white/60">
+                                Mi función:
+                              </p>
                               <div className={classes.details}>
                                 <div className={classes.detail}>
                                   <LucideArrowBigRight
@@ -233,7 +238,33 @@ const Resume = () => {
                                       classes.icon
                                     )}
                                   />
-                                  <p>1</p>
+                                  <p className="text-sm text-white/60">
+                                    UI/UX con: Figma
+                                  </p>
+                                </div>
+                                <div className={classes.detail}>
+                                  <LucideArrowBigRight
+                                    className={cn(
+                                      "text-white/60",
+                                      classes.icon
+                                    )}
+                                  />
+                                  <p className="text-sm text-white/60">
+                                    FrontEnd desarrollado con: React JS |
+                                    Material UI | Redux
+                                  </p>
+                                </div>
+                                <div className={classes.detail}>
+                                  <LucideArrowBigRight
+                                    className={cn(
+                                      "text-white/60",
+                                      classes.icon
+                                    )}
+                                  />
+                                  <p className="text-sm text-white/60">
+                                    App movil (Marcaje, Horarios, Solicitudes,
+                                    entre otros) desarrollado con: Flutter
+                                  </p>
                                 </div>
                               </div>
                             </div>
@@ -263,7 +294,7 @@ const Resume = () => {
                       return (
                         <li
                           key={index}
-                          className="bg-[#232329] h-[230px] py-6 px-10 rounded-xl flex flex-col justify-start items-center lg:items-start gap-1"
+                          className="bg-[#232329] h-[max-content] py-6 px-10 rounded-xl flex flex-col justify-start items-center lg:items-start gap-1"
                         >
                           <span className="text-accent">{item.duration}</span>
                           <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
@@ -271,10 +302,10 @@ const Resume = () => {
                           </h3>
                           <p className="text-white/60">{item.institution}</p>
                           {item.description && (
-                            <div className="flex items-center gap-3 mt-4">
+                            <div className="flex gap-3 mt-4">
                               {/* dot */}
-                              <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
-                              <p className="text-white/30">
+                              <span className="w-[6px] h-[6px] rounded-full bg-accent mt-1"></span>
+                              <p className="text-white/30 text-sm">
                                 {item.description}
                               </p>
                             </div>
