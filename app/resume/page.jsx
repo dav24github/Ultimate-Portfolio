@@ -10,7 +10,6 @@ import {
   FaAngular,
 } from "react-icons/fa";
 import { SiNextdotjs, SiFlutter, SiKotlin } from "react-icons/si";
-import classes from "./page.module.scss";
 
 // about data
 const about = {
@@ -57,20 +56,27 @@ const experience = {
   items: [
     {
       company: "Tekov",
+      description:
+        "Startup dedicada al desarrollo un software para la automatización de los procesos administrativos de recursos humanos.",
       position: "Desarrollador Front/Móvil",
       duration: "Noviembre 2022 - Presente",
-      job: {},
-    },
-    {
-      company: "Clan Bolivia",
-      position: "Desarrollador Front/Móvil",
-      duration: "Diciembre 2022 - Febrero 2023",
-      job: {},
+      job: [
+        "UI/UX con: Figma",
+        "FrontEnd desarrollado con: React JS | Material UI | Redux",
+        "App Móvil (Marcaje, Horarios, Solicitudes, entre otros) desarrollado con: Flutter",
+      ],
     },
     {
       company: "AM Consultora y Asesora en salud",
       position: "Diseñador Web Freelance",
       duration: "Octubre - Noviembre 2023",
+    },
+    {
+      company: "Clan Bolivia",
+      description: "---",
+      position: "Desarrollador Front/Móvil",
+      duration: "Diciembre 2022 - Febrero 2023",
+      job: [],
     },
   ],
 };
@@ -154,19 +160,50 @@ import {
 
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
-import {
-  ArrowDown,
-  ArrowRight,
-  ChevronDown,
-  ChevronRight,
-  ChevronRightCircle,
-  LucideArrowBigRight,
-  MoveRight,
-} from "lucide-react";
-import { cn } from "@/lib/utils";
-import { FaRightFromBracket, FaRightLong } from "react-icons/fa6";
+import { useState } from "react";
+import Experience from "@/components/Experience";
 
 const Resume = () => {
+  const experienceCol1 = experience.items.slice(
+    0,
+    Math.round(experience.items.length / 2)
+  );
+  const experienceCol2 = experience.items.slice(
+    Math.round(experience.items.length / 2),
+    experience.length
+  );
+  const [experienceOpensCol1, setExperienceOpensCol1] = useState(
+    Array.from(
+      {
+        length: experienceCol1.length,
+      },
+      () => false
+    )
+  );
+  const [experienceOpensCol2, setExperienceOpensCol2] = useState(
+    Array.from(
+      {
+        length: experienceCol2.length,
+      },
+      () => false
+    )
+  );
+
+  const handleOpenCol1 = (index) => {
+    setExperienceOpensCol1((prev) => {
+      const newData = [...prev];
+      newData[index] = !newData[index];
+      return newData;
+    });
+  };
+  const handleOpenCol2 = (index) => {
+    setExperienceOpensCol2((prev) => {
+      const newData = [...prev];
+      newData[index] = !newData[index];
+      return newData;
+    });
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -174,7 +211,7 @@ const Resume = () => {
         opacity: 1,
         transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
       }}
-      className="min-h-[80vh] flex items-center justify-center py-12"
+      className="min-h-[80vh] flex items-center justify-center pb-12 xxl:py-0"
     >
       <div className="container mx-auto">
         <Tabs
@@ -197,85 +234,28 @@ const Resume = () => {
                 <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
                   {experience.description}
                 </p>
-                <ScrollArea className="h-[70vh]">
-                  <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
-                    {experience.items.map((item, index) => {
-                      return (
-                        <li
-                          key={index}
-                          className={cn(
-                            "bg-[#232329]  py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 relative",
-                            item.job && "cursor-pointer"
-                          )}
-                        >
-                          <span className="text-accent text-sm">
-                            {item.duration}
-                          </span>
-                          <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
-                            {item.position}
-                          </h3>
-                          <div className="flex gap-3">
-                            {/* dot */}
-                            <span className="w-[6px] h-[6px] rounded-full bg-accent mt-3"></span>
-                            <p className="text-white/60">{item.company}</p>
-                          </div>
-
-                          {item.job && (
-                            <div className={classes.job}>
-                              <p className="text-sm text-white/60">
-                                Startup dedicada al desarrollo un software para
-                                la automatización de los procesos
-                                administrativos de recursos humanos.
-                              </p>
-                              <p className="text-sm text-white/60">
-                                Mi función:
-                              </p>
-                              <div className={classes.details}>
-                                <div className={classes.detail}>
-                                  <LucideArrowBigRight
-                                    className={cn(
-                                      "text-white/60",
-                                      classes.icon
-                                    )}
-                                  />
-                                  <p className="text-sm text-white/60">
-                                    UI/UX con: Figma
-                                  </p>
-                                </div>
-                                <div className={classes.detail}>
-                                  <LucideArrowBigRight
-                                    className={cn(
-                                      "text-white/60",
-                                      classes.icon
-                                    )}
-                                  />
-                                  <p className="text-sm text-white/60">
-                                    FrontEnd desarrollado con: React JS |
-                                    Material UI | Redux
-                                  </p>
-                                </div>
-                                <div className={classes.detail}>
-                                  <LucideArrowBigRight
-                                    className={cn(
-                                      "text-white/60",
-                                      classes.icon
-                                    )}
-                                  />
-                                  <p className="text-sm text-white/60">
-                                    App movil (Marcaje, Horarios, Solicitudes,
-                                    entre otros) desarrollado con: Flutter
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          )}
-
-                          {item.job && (
-                            <ChevronDown className="absolute bottom-5 right-5" />
-                          )}
-                        </li>
-                      );
-                    })}
+                <ScrollArea className="h-[400px]">
+                  <ul className="flex gap-[30px]">
+                    <div className="flex-1 flex flex-col gap-[30px]">
+                      {experienceCol1.map((item, index) => (
+                        <Experience
+                          data={item}
+                          open={experienceOpensCol1[index]}
+                          id={index}
+                          handleOpen={handleOpenCol1}
+                        />
+                      ))}
+                    </div>
+                    <div className="flex-1 flex flex-col gap-[30px]">
+                      {experienceCol2.map((item, index) => (
+                        <Experience
+                          data={item}
+                          open={experienceOpensCol2[index]}
+                          id={index}
+                          handleOpen={handleOpenCol2}
+                        />
+                      ))}
+                    </div>
                   </ul>
                 </ScrollArea>
               </div>

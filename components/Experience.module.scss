@@ -1,3 +1,23 @@
+.card {
+  height: max-content !important;
+  &:hover {
+    .arrow {
+      color: #5ae9ff;
+    }
+  }
+}
+
+.arrow {
+  transition: all 0.3s;
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+}
+
+.open {
+  transform: rotate(180deg);
+}
+
 .job {
   display: flex;
   flex-direction: column;

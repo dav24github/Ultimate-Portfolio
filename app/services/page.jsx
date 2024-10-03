@@ -111,7 +111,7 @@ import Image from "next/image";
 
 const Services = () => {
   return (
-    <section className="min-h-[80vh] flex flex-col justify-center py-12">
+    <section className="min-h-[80vh] flex flex-col justify-center pb-12 xxl:py-0">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
