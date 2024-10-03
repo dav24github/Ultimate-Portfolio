@@ -60,6 +60,7 @@ const experience = {
         "Startup dedicada al desarrollo un software para la automatización de los procesos administrativos de recursos humanos.",
       position: "Desarrollador Front/Móvil",
       duration: "Noviembre 2022 - Presente",
+      subtitle: "Mi función",
       job: [
         "UI/UX con: Figma",
         "FrontEnd desarrollado con: React JS | Material UI | Redux",
@@ -73,10 +74,18 @@ const experience = {
     },
     {
       company: "Clan Bolivia",
-      description: "---",
+      description:
+        "Consultora de software con clientes en Bolivia y Guatemala.",
       position: "Desarrollador Front/Móvil",
       duration: "Diciembre 2022 - Febrero 2023",
-      job: [],
+      subtitle: "Proyectos completados",
+      job: [
+        "Sistema de gestion (ERP) para la empresa de limpieza “JELPI” con: Angular | PrimeNG",
+        "Sistema de gestion (ERP) para la empresa de mantenimiento de autos “ESPINO” con: Angular | PrimeNG",
+        "Sistema de gestion (ERP) para la empresa de delivery “GOBOX” con: Angular | PrimeNG",
+        "Sistema de gestion (ERP) para clínicas dentales. “ClinicAPP” con: Angular | PrimeNG | Supabase",
+        "App movil para clínicas dentales. “ClinicAPP” con: FlutterFlow | Supabase",
+      ],
     },
   ],
 };
@@ -234,7 +243,7 @@ const Resume = () => {
                 <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
                   {experience.description}
                 </p>
-                <ScrollArea className="h-[400px]">
+                <ScrollArea className="h-[75vh]">
                   <ul className="flex gap-[30px]">
                     <div className="flex-1 flex flex-col gap-[30px]">
                       {experienceCol1.map((item, index) => (

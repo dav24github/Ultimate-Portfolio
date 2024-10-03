@@ -29,7 +29,7 @@ const Experience = ({ data, open, handleOpen, id }) => {
         <div className={classes.job}>
           <p className="text-sm text-white/60">{data.description}</p>
           <div className={classes.details}>
-            <p className="text-sm text-white/60">Mi función:</p>
+            <p className="text-sm text-white/60">{data.subtitle + ":"}</p>
             {data.job.map((obj) => (
               <div className={classes.detail}>
                 <LucideArrowBigRight

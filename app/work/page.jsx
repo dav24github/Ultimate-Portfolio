@@ -5,7 +5,7 @@ import React, { useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-
+import { MdOutlineDesignServices } from "react-icons/md";
 import { BsArrowUpRight, BsGithub } from "react-icons/bs";
 
 import {
@@ -18,12 +18,15 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import WorkSliderBtns from "@/components/WorkSliderBtns";
+import { AppWindow, PhoneIcon } from "lucide-react";
+import { IoIosPhonePortrait } from "react-icons/io";
+import { FaLaptopCode } from "react-icons/fa";
+import { cn } from "@/lib/utils";
 
 const projects = [
   {
     num: "01",
-    category: "frontend",
-    title: "project 1",
+    title: "frontend",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate magnam modi.",
     stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Javascript" }],
@@ -33,8 +36,7 @@ const projects = [
   },
   {
     num: "02",
-    category: "fullstack",
-    title: "project 2",
+    title: "fullstack",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate magnam modi.",
     stack: [{ name: "Next.js" }, { name: "Tailwind.css" }, { name: "Node.js" }],
@@ -44,8 +46,7 @@ const projects = [
   },
   {
     num: "03",
-    category: "frontend",
-    title: "project 3",
+    title: "frontend",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate magnam modi.",
     stack: [{ name: "Next.js" }, { name: "Tailwind.css" }],
@@ -72,9 +73,40 @@ const Work = () => {
         opacity: 1,
         transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
       }}
-      className="min-h-[80vh] flex flex-col justify-center pb-12 xxl:py-0 py-12"
+      className="min-h-[80vh] flex flex-col justify-center pb-12 xxl:py-0"
     >
       <div className="container mx-auto">
+        <div className="mb-8 w-full flex gap-16 justify-center">
+          <div
+            className={cn(
+              "cursor-pointer flex flex-col gap-2 items-center w-[100px] rounded-md py-2 transition-all duration-300",
+              ""
+            )}
+          >
+            <FaLaptopCode className={cn("text-4xl", "text-accent")} />
+            <p className={cn("text-xs", "text-white")}>Aplicaciones</p>
+          </div>
+          <div
+            className={cn(
+              "cursor-pointer flex flex-col gap-2 items-center w-[100px] rounded-md py-2 transition-all duration-300",
+              "hover:bg-[#192a45]"
+            )}
+          >
+            <MdOutlineDesignServices
+              className={cn("text-4xl", "text-white/60")}
+            />
+            <p className={cn("text-xs", "text-white/60")}>Páginas Web</p>
+          </div>
+          <div
+            className={cn(
+              "cursor-pointer flex flex-col gap-2 items-center w-[100px] rounded-md py-2 transition-all duration-300",
+              "hover:bg-[#192a45]"
+            )}
+          >
+            <IoIosPhonePortrait className={cn("text-4xl", "text-white/60")} />
+            <p className={cn("text-xs", "text-white/60")}>Móvil</p>
+          </div>
+        </div>
         <div className="flex flex-col xl:flex-row xl:gap-[30px]">
           <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
             <div className="flex flex-col gap-[30px] h-[50%]">
@@ -82,9 +114,9 @@ const Work = () => {
               <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
                 {project.num}
               </div>
-              {/* project category */}
+              {/* project title */}
               <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {project.category} project
+                {project.title}
               </h2>
               {/* project description */}
               <p className="text-white/60">{project.description}</p>
