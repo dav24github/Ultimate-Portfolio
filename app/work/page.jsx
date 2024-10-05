@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import "swiper/css";
 import { MdOutlineDesignServices } from "react-icons/md";
 import { BsArrowUpRight, BsGithub } from "react-icons/bs";
@@ -22,8 +22,9 @@ import { AppWindow, PhoneIcon } from "lucide-react";
 import { IoIosPhonePortrait } from "react-icons/io";
 import { FaLaptopCode } from "react-icons/fa";
 import { cn } from "@/lib/utils";
+import classes from "./page.module.scss";
 
-const projects = [
+const projectsData = [
   {
     num: "01",
     title: "frontend",
@@ -33,6 +34,29 @@ const projects = [
     image: "/assets/work/thumb1.png",
     live: "",
     github: "",
+    category: "dev",
+  },
+  {
+    num: "02",
+    title: "frontend",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate magnam modi.",
+    stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Javascript" }],
+    image: "/assets/work/thumb1.png",
+    live: "",
+    github: "",
+    category: "dev",
+  },
+  {
+    num: "01",
+    title: "fullstack",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate magnam modi.",
+    stack: [{ name: "Next.js" }, { name: "Tailwind.css" }, { name: "Node.js" }],
+    image: "/assets/work/thumb2.png",
+    live: "",
+    github: "",
+    category: "design",
   },
   {
     num: "02",
@@ -43,21 +67,48 @@ const projects = [
     image: "/assets/work/thumb2.png",
     live: "",
     github: "",
+    category: "design",
   },
   {
-    num: "03",
-    title: "frontend",
+    num: "01",
+    title: "Movil",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate magnam modi.",
     stack: [{ name: "Next.js" }, { name: "Tailwind.css" }],
     image: "/assets/work/thumb3.png",
     live: "",
     github: "",
+    category: "phone",
+  },
+  {
+    num: "02",
+    title: "Movil",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate magnam modi.",
+    stack: [{ name: "Next.js" }, { name: "Tailwind.css" }],
+    image: "/assets/work/thumb3.png",
+    live: "",
+    github: "",
+    category: "phone",
   },
 ];
 
 const Work = () => {
-  const [project, setProject] = useState(projects[0]);
+  const [show, setShow] = useState(false);
+  const [project, setProject] = useState();
+  const [filter, setFilter] = useState("dev");
+  const projects = useMemo(
+    () => projectsData.filter((obj) => obj.category === filter),
+    [filter]
+  );
+
+  useEffect(() => {
+    setShow(false);
+    setProject(projects[0]);
+    setTimeout(() => {
+      setShow(true);
+    }, 100);
+  }, [filter]);
 
   const handleSlideChange = (swiper) => {
     // get current slide index
@@ -66,6 +117,8 @@ const Work = () => {
     setProject(projects[currentIndex]);
   };
 
+  if (!project) return;
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -73,41 +126,79 @@ const Work = () => {
         opacity: 1,
         transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
       }}
-      className="min-h-[80vh] flex flex-col justify-center pb-12 xxl:py-0"
+      className="min-h-[80vh] flex flex-col justify-start pb-12 xxl:py-0"
     >
       <div className="container mx-auto">
-        <div className="mb-8 w-full flex gap-16 justify-center">
+        <div className="mb-2 w-full flex gap-16 justify-center">
           <div
             className={cn(
               "cursor-pointer flex flex-col gap-2 items-center w-[100px] rounded-md py-2 transition-all duration-300",
-              ""
+              filter !== "dev" ? "hover:bg-[#192a45]" : ""
             )}
+            onClick={() => setFilter("dev")}
           >
-            <FaLaptopCode className={cn("text-4xl", "text-accent")} />
-            <p className={cn("text-xs", "text-white")}>Aplicaciones</p>
+            <FaLaptopCode
+              className={cn(
+                "text-4xl",
+                filter === "dev" ? "text-accent" : "text-white/40"
+              )}
+            />
+            <p
+              className={cn(
+                "text-xs",
+                filter === "dev" ? "text-white" : "text-white/40"
+              )}
+            >
+              Aplicaciones
+            </p>
           </div>
           <div
             className={cn(
               "cursor-pointer flex flex-col gap-2 items-center w-[100px] rounded-md py-2 transition-all duration-300",
-              "hover:bg-[#192a45]"
+              filter !== "design" ? "hover:bg-[#192a45]" : ""
             )}
+            onClick={() => setFilter("design")}
           >
             <MdOutlineDesignServices
-              className={cn("text-4xl", "text-white/60")}
+              className={cn(
+                "text-4xl",
+                filter === "design" ? "text-accent" : "text-white/40"
+              )}
             />
-            <p className={cn("text-xs", "text-white/60")}>Páginas Web</p>
+            <p
+              className={cn(
+                "text-xs",
+                filter === "design" ? "text-white" : "text-white/40"
+              )}
+            >
+              Páginas Web
+            </p>
           </div>
           <div
             className={cn(
               "cursor-pointer flex flex-col gap-2 items-center w-[100px] rounded-md py-2 transition-all duration-300",
-              "hover:bg-[#192a45]"
+              filter !== "phone" ? "hover:bg-[#192a45]" : ""
             )}
+            onClick={() => setFilter("phone")}
           >
-            <IoIosPhonePortrait className={cn("text-4xl", "text-white/60")} />
-            <p className={cn("text-xs", "text-white/60")}>Móvil</p>
+            <IoIosPhonePortrait
+              className={cn(
+                "text-4xl",
+                filter === "phone" ? "text-accent" : "text-white/40"
+              )}
+            />
+            <p
+              className={cn(
+                "text-xs",
+                filter === "phone" ? "text-white" : "text-white/40"
+              )}
+            >
+              Móvil
+            </p>
           </div>
         </div>
-        <div className="flex flex-col xl:flex-row xl:gap-[30px]">
+        <div className={classes.divider} />
+        <div className="mt-8 flex flex-col xl:flex-row xl:gap-[30px]">
           <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
             <div className="flex flex-col gap-[30px] h-[50%]">
               {/* outline num */}
@@ -166,37 +257,39 @@ const Work = () => {
             </div>
           </div>
           <div className="w-full xl:w-[50%]">
-            <Swiper
-              spaceBetween={30}
-              slidesPerView={1}
-              className="xl:h-[520px] mb-12"
-              onSlideChange={handleSlideChange}
-            >
-              {projects.map((project, index) => {
-                return (
-                  <SwiperSlide key={index} className="w-full">
-                    <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
-                      {/* overlay */}
-                      <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
-                      {/* image */}
-                      <div className="relative w-full h-full">
-                        <Image
-                          src={project.image}
-                          fill
-                          className="object-cover"
-                          alt=""
-                        />
+            {show && (
+              <Swiper
+                spaceBetween={30}
+                slidesPerView={1}
+                className="xl:h-[520px] mb-12"
+                onSlideChange={handleSlideChange}
+              >
+                {projects.map((project, index) => {
+                  return (
+                    <SwiperSlide key={index} className="w-full">
+                      <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
+                        {/* overlay */}
+                        <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
+                        {/* image */}
+                        <div className="relative w-full h-full">
+                          <Image
+                            src={project.image}
+                            fill
+                            className="object-cover"
+                            alt=""
+                          />
+                        </div>
                       </div>
-                    </div>
-                  </SwiperSlide>
-                );
-              })}
-              {/* slider buttons */}
-              <WorkSliderBtns
-                containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
-                btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"
-              />
-            </Swiper>
+                    </SwiperSlide>
+                  );
+                })}
+                {/* slider buttons */}
+                <WorkSliderBtns
+                  containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
+                  btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"
+                />
+              </Swiper>
+            )}
           </div>
         </div>
       </div>
