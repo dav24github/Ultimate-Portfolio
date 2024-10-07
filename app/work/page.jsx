@@ -353,12 +353,12 @@ const Work = () => {
                         <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
                         {/* image */}
                         <div className="relative w-full h-full">
-                          {/* <Image
+                          <img
                             src={project.image}
-                            fill
-                            className="object-cover"
+                            // fill
+                            className="object-cover h-full"
                             alt=""
-                          /> */}
+                          />
                         </div>
                       </div>
                     </SwiperSlide>

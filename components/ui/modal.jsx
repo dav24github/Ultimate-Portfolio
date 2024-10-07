@@ -5,6 +5,7 @@ import { FaX } from "react-icons/fa6";
 import { Button } from "./button";
 import { BsArrowDownRight } from "react-icons/bs";
 import Link from "next/link";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const Modal = ({ title, description, slug }) => (
   <Dialog.Root>
@@ -16,23 +17,29 @@ const Modal = ({ title, description, slug }) => (
     <Dialog.Portal>
       <Dialog.Overlay className="DialogOverlay" />
       <Dialog.Content className="DialogContent">
-        <Dialog.Title className="DialogTitle">
-          <span className="text-xl">{title}</span>
-          <Dialog.Close asChild>
-            <button className="IconButton" aria-label="Close">
-              <FaX />
-            </button>
-          </Dialog.Close>
-        </Dialog.Title>
-        <Dialog.Description className="DialogDescription">
-          {description}
-        </Dialog.Description>
-        <div
-          style={{ display: "flex", marginTop: 25, justifyContent: "flex-end" }}
-        >
-          <Link className="link-action" href={`/contact?q=${slug}`}>
-            <Button className="btn-action">Consultar</Button>
-          </Link>
+        <div class="flex flex-col">
+          <Dialog.Title className="DialogTitle">
+            <span className="text-xl">{title}</span>
+            <Dialog.Close asChild>
+              <button className="IconButton" aria-label="Close">
+                <FaX />
+              </button>
+            </Dialog.Close>
+          </Dialog.Title>
+          <Dialog.Description className="DialogDescription">
+            <ScrollArea className="h-[50vh]">{description}</ScrollArea>
+          </Dialog.Description>
+          <div
+            style={{
+              display: "flex",
+              marginTop: 25,
+              justifyContent: "flex-end",
+            }}
+          >
+            <Link className="link-action" href={`/contact?q=${slug}`}>
+              <Button className="btn-action">Consultar</Button>
+            </Link>
+          </div>
         </div>
       </Dialog.Content>
     </Dialog.Portal>

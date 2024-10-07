@@ -9,15 +9,15 @@ const services = [
       "Me gusta programar cosas desde cero, y disfruto mucho llevar mis ideas a la reliadad en el navegador",
     description: (
       <div className="container">
-        {/* <Image
+        <img
           src="/assets/services/web-dev.png"
-          priority
-          quality={100}
-          sizes="80"
-          fill
+          // priority
+          // quality={100}
+          // sizes="80"
+          // fill
           alt="web-dev"
           className="img-icon"
-        /> */}
+        />
         <div>
           <p>¡Transforma tus ideas en realidad!</p>
           <p>
@@ -46,7 +46,15 @@ const services = [
       "Valoro una estructura de contenido simple, patrones de diseño limpios e interacciones bien pensadas.",
     description: (
       <div className="container">
-        *
+        <img
+          src="/assets/services/ui-ux.png"
+          // priority
+          // quality={100}
+          // sizes="80"
+          // fill
+          alt="ui-ux"
+          className="img-icon"
+        />
         <div>
           <p>¿Necesitas una página web?</p>
           <p>
@@ -71,15 +79,15 @@ const services = [
       "Una de mis habilidades más recientes. Me he enfocado en desarrollar aplicaciones que sean rápidas, fáciles de usar y con un diseño elegante.",
     description: (
       <div className="container">
-        {/* <Image
+        <img
           src="/assets/services/phone.png"
-          priority
-          quality={100}
-          sizes="80"
-          fill
+          // priority
+          // quality={100}
+          // sizes="80"
+          // fill
           alt="phone"
           className="img-icon"
-        /> */}
+        />
         <div>
           <p>
             Una aplicación móvil puede ofrecerte un rendimiento más rápido, una
