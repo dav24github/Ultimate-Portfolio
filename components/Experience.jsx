@@ -30,8 +30,8 @@ const Experience = ({ data, open, handleOpen, id }) => {
           <p className="text-sm text-white/60">{data.description}</p>
           <div className={classes.details}>
             <p className="text-sm text-white/60">{data.subtitle + ":"}</p>
-            {data.job.map((obj) => (
-              <div className={classes.detail}>
+            {data.job.map((obj, index) => (
+              <div key={index} className={classes.detail}>
                 <LucideArrowBigRight
                   className={cn("text-white/60", classes.icon)}
                 />

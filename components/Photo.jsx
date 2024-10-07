@@ -29,14 +29,14 @@ const Photo = () => {
           )}
         >
           <Bubble />
-          <Image
+          {/* <Image
             src="/assets/photo.png"
             priority
             quality={100}
             fill
             alt=""
             className="object-contain"
-          />
+          /> */}
         </motion.div>
 
         {/* circle */}

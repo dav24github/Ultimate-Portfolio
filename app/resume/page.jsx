@@ -220,7 +220,7 @@ const Resume = () => {
         opacity: 1,
         transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
       }}
-      className="min-h-[80vh] flex items-center justify-center pb-12 xxl:py-0"
+      className="min-h-[80vh] flex items-start justify-center pb-12 xxl:py-0"
     >
       <div className="container mx-auto">
         <Tabs
@@ -243,11 +243,12 @@ const Resume = () => {
                 <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
                   {experience.description}
                 </p>
-                <ScrollArea className="h-[75vh]">
+                <ScrollArea className="h-[70vh]">
                   <ul className="flex gap-[30px]">
                     <div className="flex-1 flex flex-col gap-[30px]">
                       {experienceCol1.map((item, index) => (
                         <Experience
+                          key={index}
                           data={item}
                           open={experienceOpensCol1[index]}
                           id={index}
@@ -258,6 +259,7 @@ const Resume = () => {
                     <div className="flex-1 flex flex-col gap-[30px]">
                       {experienceCol2.map((item, index) => (
                         <Experience
+                          key={index}
                           data={item}
                           open={experienceOpensCol2[index]}
                           id={index}
@@ -277,7 +279,7 @@ const Resume = () => {
                 <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
                   {education.description}
                 </p>
-                <ScrollArea className="h-[400px]">
+                <ScrollArea className="h-[70vh]">
                   <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
                     {education.items.map((item, index) => {
                       return (
@@ -308,7 +310,7 @@ const Resume = () => {
             </TabsContent>
 
             {/* skills */}
-            <TabsContent value="skills" className="w-full h-full">
+            <TabsContent value="skills" className="w-full">
               <div className="flex flex-col gap-[30px]">
                 <div className="flex flex-col gap-[30px] text-center xl:text-left">
                   <h3 className="text-4xl font-bold">{skills.title}</h3>
@@ -342,7 +344,7 @@ const Resume = () => {
             {/* about */}
             <TabsContent
               value="about"
-              className="w-full text-center xl:text-left"
+              className="w-full text-center xl:text-left h-[70vh]"
             >
               <div className="flex flex-col gap-[30px]">
                 <h3 className="text-4xl font-bold">{about.title}</h3>
