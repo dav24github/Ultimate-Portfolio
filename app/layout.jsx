@@ -13,8 +13,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: "David Escalante | Dev",
-  description: "David Escalante | Desarrollador software",
+  title: "David Escalante | Portafolio",
+  description:
+    "Portafolio de David Escalante - Desarrollador de software | Ing. en Ciencias de la Computación",
 };
 
 export default function RootLayout({ children }) {
