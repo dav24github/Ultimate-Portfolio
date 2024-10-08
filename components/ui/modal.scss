@@ -1,3 +1,24 @@
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #3ccfe6;
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #5ae9ff;
+}
+
 .DialogOverlay {
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
@@ -28,6 +49,11 @@
   }
 }
 
+.body {
+  height: 50vh;
+  overflow: auto;
+}
+
 .IconButton {
   padding: 10px;
 }
@@ -55,7 +81,7 @@
   width: 100%;
   border-radius: 12px;
   padding: 10px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 @keyframes overlayShow {

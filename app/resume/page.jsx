@@ -243,8 +243,8 @@ const Resume = () => {
                 <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
                   {experience.description}
                 </p>
-                <ScrollArea className="h-[70vh]">
-                  <ul className="flex gap-[30px]">
+                <ScrollArea className="md:h-[70vh]">
+                  <ul className="flex flex-col md:flex-row gap-[30px]">
                     <div className="flex-1 flex flex-col gap-[30px]">
                       {experienceCol1.map((item, index) => (
                         <Experience
@@ -346,7 +346,7 @@ const Resume = () => {
               value="about"
               className="w-full text-center xl:text-left h-[70vh]"
             >
-              <div className="flex flex-col gap-[30px]">
+              <div className="flex flex-col gap-[30px] pb-10">
                 <h3 className="text-4xl font-bold">{about.title}</h3>
                 <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
                   {about.description}

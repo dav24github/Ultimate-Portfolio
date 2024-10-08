@@ -5,8 +5,6 @@ import { FaX } from "react-icons/fa6";
 import { Button } from "./button";
 import { BsArrowDownRight } from "react-icons/bs";
 import Link from "next/link";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { cn } from "@/lib/utils";
 
 const Modal = ({ title, description, slug }) => (
   <Dialog.Root>
@@ -27,9 +25,13 @@ const Modal = ({ title, description, slug }) => (
               </button>
             </Dialog.Close>
           </Dialog.Title>
-          <Dialog.Description className="DialogDescription">
-            <ScrollArea className="50vh">{description}</ScrollArea>
-          </Dialog.Description>
+
+          <div className="body">
+            <Dialog.Description className="DialogDescription">
+              {description}
+            </Dialog.Description>
+          </div>
+
           <div
             style={{
               display: "flex",
