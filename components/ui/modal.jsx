@@ -6,6 +6,7 @@ import { Button } from "./button";
 import { BsArrowDownRight } from "react-icons/bs";
 import Link from "next/link";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { cn } from "@/lib/utils";
 
 const Modal = ({ title, description, slug }) => (
   <Dialog.Root>
@@ -27,7 +28,7 @@ const Modal = ({ title, description, slug }) => (
             </Dialog.Close>
           </Dialog.Title>
           <Dialog.Description className="DialogDescription">
-            <ScrollArea className="h-[50vh]">{description}</ScrollArea>
+            <ScrollArea className="50vh">{description}</ScrollArea>
           </Dialog.Description>
           <div
             style={{
