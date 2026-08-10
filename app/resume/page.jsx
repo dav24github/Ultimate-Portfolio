@@ -69,7 +69,7 @@ const experience = {
       ],
     },
     {
-      company: "IO System",
+      company: "IO Software",
       description:
         "Sistema de restaurante para la gestión de pedidos/comandas, inventario y Punto de Venta con facturación.",
       position: "Desarrollador Frontend/ScrumMaster",
