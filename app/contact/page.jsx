@@ -33,7 +33,7 @@ const info = [
   {
     icon: <FaEnvelope />,
     title: "Correo",
-    description: "info@davidescalante.es",
+    description: "davidthbsossa@gmail.com",
   },
   {
     icon: <FaMapMarkerAlt />,
@@ -78,9 +78,9 @@ const ContactPage = () => {
         topic.current.textContent,
         email.current.value,
         phone.current.value,
-        description.current.value
+        description.current.value,
       );
-      fetch("https://formsubmit.co/ajax/info@davidescalante.es", {
+      fetch("https://formsubmit.co/ajax/davidthbsossa@gmail.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -166,10 +166,10 @@ const ContactPage = () => {
                   search == "web-dev"
                     ? "Desarrollo Web"
                     : search === "web-design"
-                    ? "Diseño UI/UX"
-                    : search === "app-dev"
-                    ? "Desarrollo Móvil"
-                    : ""
+                      ? "Diseño UI/UX"
+                      : search === "app-dev"
+                        ? "Desarrollo Móvil"
+                        : ""
                 }
               >
                 <SelectTrigger ref={topic} className="w-full">
@@ -233,7 +233,7 @@ const ContactPage = () => {
                       "flex items-center gap-6",
                       item.title === "Teléfono"
                         ? "cursor-pointer hover:bg-[#27272c] rounded-md transition-all duration-300"
-                        : "cursor-default pointer-events-none"
+                        : "cursor-default pointer-events-none",
                     )}
                     target="_black"
                     href="https://wa.me/59172874083"

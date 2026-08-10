@@ -16,7 +16,7 @@ import { SiNextdotjs, SiFlutter, SiKotlin } from "react-icons/si";
 const about = {
   title: "Acerca de mi",
   description:
-    "Soy desarrollador de software con más de 3 años de experiencia, licenciado en Ciencia de la Computación con excelencia académica, enfocado principalmente en el desarrollo web. Me impulsa la pasión por aprender y el compromiso de compartir mis habilidades con los demás.",
+    "Soy desarrollador de software con más de 5 años de experiencia, licenciado en Ciencia de la Computación con excelencia académica y enfocado principalmente en el desarrollo web y móvil. Me impulsa la pasión por aprender y el compromiso de compartir mis habilidades con los demás.",
   info: [
     {
       fieldName: "Nombre",
@@ -28,11 +28,11 @@ const about = {
     },
     {
       fieldName: "Experiencia",
-      fieldValue: "+3 Years",
+      fieldValue: `${getMyExperienceYears()} años`,
     },
     {
       fieldName: "Correo",
-      fieldValue: "info@davidescalante.es",
+      fieldValue: "davidthbsossa@gmail.com",
     },
     {
       fieldName: "Nacionalidad",
@@ -189,6 +189,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Experience from "@/components/Experience";
+import { getMyExperienceYears } from "@/utils/date";
 
 const Resume = () => {
   const experienceCol1 = experience.items.slice(

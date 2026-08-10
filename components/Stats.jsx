@@ -1,10 +1,11 @@
 "use client";
 
+import { getMyExperienceYears } from "@/utils/date";
 import CountUp from "react-countup";
 
 const stats = [
   {
-    num: new Date().getFullYear() - 2021,
+    num: getMyExperienceYears(),
     text: "Años de experiencia",
   },
   {
@@ -12,7 +13,7 @@ const stats = [
     text: "Projectos completados",
   },
   {
-    num: 10,
+    num: 11,
     text: "Tecnologías dominadas",
   },
 ];
