@@ -8,6 +8,7 @@ import {
   FaFigma,
   FaNodeJs,
   FaAngular,
+  FaVuejs,
 } from "react-icons/fa";
 import { SiNextdotjs, SiFlutter, SiKotlin } from "react-icons/si";
 
@@ -68,6 +69,19 @@ const experience = {
       ],
     },
     {
+      company: "IO System",
+      description:
+        "Sistema de restaurante para la gestión de pedidos/comandas, inventario y Punto de Venta con facturación.",
+      position: "Desarrollador Frontend/ScrumMaster",
+      duration: "Octubre 2024 - Mayo 2025",
+      subtitle: "Mi función",
+      job: [
+        "UI/UX con: Figma",
+        "FrontEnd desarrollado con: Vue | Tanstack",
+        "Lider y Scrum Master del proyecto",
+      ],
+    },
+    {
       company: "AM Consultora y Asesora en salud",
       position: "Diseñador Web Freelance",
       duration: "Octubre - Noviembre 2023",
@@ -77,7 +91,7 @@ const experience = {
       description:
         "Consultora de software con clientes en Bolivia y Guatemala.",
       position: "Desarrollador Front/Móvil",
-      duration: "Diciembre 2022 - Febrero 2023",
+      duration: "Diciembre 2022 - Marzo 2023",
       subtitle: "Proyectos completados",
       job: [
         "Sistema de gestion (ERP) para la empresa de limpieza “JELPI” con: Angular | PrimeNG",
@@ -136,6 +150,10 @@ const skills = {
       name: "angular",
     },
     {
+      icon: <FaVuejs />,
+      name: "vue",
+    },
+    {
       icon: <SiNextdotjs />,
       name: "next.js",
     },
@@ -175,27 +193,27 @@ import Experience from "@/components/Experience";
 const Resume = () => {
   const experienceCol1 = experience.items.slice(
     0,
-    Math.round(experience.items.length / 2)
+    Math.round(experience.items.length / 2),
   );
   const experienceCol2 = experience.items.slice(
     Math.round(experience.items.length / 2),
-    experience.length
+    experience.length,
   );
   const [experienceOpensCol1, setExperienceOpensCol1] = useState(
     Array.from(
       {
         length: experienceCol1.length,
       },
-      () => false
-    )
+      () => false,
+    ),
   );
   const [experienceOpensCol2, setExperienceOpensCol2] = useState(
     Array.from(
       {
         length: experienceCol2.length,
       },
-      () => false
-    )
+      () => false,
+    ),
   );
 
   const handleOpenCol1 = (index) => {

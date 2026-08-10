@@ -45,6 +45,18 @@ const projectsData = [
   },
   {
     num: "02",
+    title: "Io System - Restaurante",
+    description:
+      "Sistema ERP desarrollado para el negocio de Restaurantes que cubre sus diversos flujos de información y control de servicios a sus clientes, incluyendo Punto de Venta + Facturación, control de inventario, reportes, entre otros.",
+    stack: [{ name: "Vue" }, { name: "TanStack" }, { name: "Figma" }],
+    image: "/assets/work/io-system.JPG",
+    live: "",
+    github: "",
+    website: "",
+    category: "dev",
+  },
+  {
+    num: "03",
     title: "Clinic App",
     description:
       "Sistema ERP que permite controlar los diversos flujos de información de una clínica dental. Actividades diarias como la contabilidad, el aprovisionamiento, el cumplimiento de servicios y las operaciones de la cadena de suministro, son alguna de las cosas que incluye este software.",
@@ -55,7 +67,7 @@ const projectsData = [
     category: "dev",
   },
   {
-    num: "03",
+    num: "04",
     title: "Jelpi",
     description:
       "Sistema ERP desarrollado para el negocio de Limpieza “JELPI” que cubre sus diversos flujos de información y control de servicios a sus clientes.",
@@ -66,7 +78,7 @@ const projectsData = [
     category: "dev",
   },
   {
-    num: "04",
+    num: "05",
     title: "Espino",
     description:
       "Sistema ERP desarrollado para el negocio Multiservicio y Lubricantes para Autos “ESPINO”. Gestiona sus diversos flujos de información y control de servicios a sus clientes y adicionalmente cuenta con un apartado para administrar una tiendita de abarrotes.",
@@ -77,7 +89,7 @@ const projectsData = [
     category: "dev",
   },
   {
-    num: "05",
+    num: "06",
     title: "English Vocabulary",
     description:
       "Plantaforma personal que facilita expadir el vocabulario en ingles de una forma fácil y organizada. Cuenta con un diseño que permite no solo ver las distintas traducciones de una palabra si no que además vicurlarlo sus sinónimos. También cuenta con un aparatado para almacenar tus frases favoritas.",
@@ -161,7 +173,7 @@ const Work = () => {
   const [filter, setFilter] = useState("dev");
   const projects = useMemo(
     () => projectsData.filter((obj) => obj.category === filter),
-    [filter]
+    [filter],
   );
 
   useEffect(() => {
@@ -195,20 +207,20 @@ const Work = () => {
           <div
             className={cn(
               "cursor-pointer flex flex-col gap-2 items-center w-[100px] rounded-md py-2 transition-all duration-300",
-              filter !== "dev" ? "hover:bg-[#192a45]" : ""
+              filter !== "dev" ? "hover:bg-[#192a45]" : "",
             )}
             onClick={() => setFilter("dev")}
           >
             <FaLaptopCode
               className={cn(
                 "text-4xl",
-                filter === "dev" ? "text-accent" : "text-white/40"
+                filter === "dev" ? "text-accent" : "text-white/40",
               )}
             />
             <p
               className={cn(
                 "text-xs",
-                filter === "dev" ? "text-white" : "text-white/40"
+                filter === "dev" ? "text-white" : "text-white/40",
               )}
             >
               Aplicaciones
@@ -217,20 +229,20 @@ const Work = () => {
           <div
             className={cn(
               "cursor-pointer flex flex-col gap-2 items-center w-[100px] rounded-md py-2 transition-all duration-300",
-              filter !== "design" ? "hover:bg-[#192a45]" : ""
+              filter !== "design" ? "hover:bg-[#192a45]" : "",
             )}
             onClick={() => setFilter("design")}
           >
             <MdOutlineDesignServices
               className={cn(
                 "text-4xl",
-                filter === "design" ? "text-accent" : "text-white/40"
+                filter === "design" ? "text-accent" : "text-white/40",
               )}
             />
             <p
               className={cn(
                 "text-xs",
-                filter === "design" ? "text-white" : "text-white/40"
+                filter === "design" ? "text-white" : "text-white/40",
               )}
             >
               Páginas Web
@@ -239,20 +251,20 @@ const Work = () => {
           <div
             className={cn(
               "cursor-pointer flex flex-col gap-2 items-center w-[100px] rounded-md py-2 transition-all duration-300",
-              filter !== "phone" ? "hover:bg-[#192a45]" : ""
+              filter !== "phone" ? "hover:bg-[#192a45]" : "",
             )}
             onClick={() => setFilter("phone")}
           >
             <IoIosPhonePortrait
               className={cn(
                 "text-4xl",
-                filter === "phone" ? "text-accent" : "text-white/40"
+                filter === "phone" ? "text-accent" : "text-white/40",
               )}
             />
             <p
               className={cn(
                 "text-xs",
-                filter === "phone" ? "text-white" : "text-white/40"
+                filter === "phone" ? "text-white" : "text-white/40",
               )}
             >
               Móvil
