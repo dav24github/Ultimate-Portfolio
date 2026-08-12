@@ -47,8 +47,13 @@ const projectsData = [
     num: "02",
     title: "Io Software - Restaurante",
     description:
-      "Sistema ERP desarrollado para el negocio de Restaurantes que cubre sus diversos flujos de información y control de servicios a sus clientes, incluyendo Punto de Venta + Facturación, control de inventario, reportes, entre otros.",
-    stack: [{ name: "Vue" }, { name: "TanStack" }, { name: "Figma" }],
+      "Sistema ERP desarrollado para el negocio de Restaurantes que cubre sus diversos flujos de información y control de servicios a sus clientes, incluyendo Punto de Venta (real-time) + Facturación, control de inventario, reportes, entre otros.",
+    stack: [
+      { name: "Vue" },
+      { name: "TanStack" },
+      { name: "WebSocket" },
+      { name: "Figma" },
+    ],
     image: "/assets/work/io-system.JPG",
     live: "",
     github: "",

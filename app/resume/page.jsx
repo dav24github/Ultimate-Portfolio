@@ -71,13 +71,13 @@ const experience = {
     {
       company: "IO Software",
       description:
-        "Sistema de restaurante para la gestión de pedidos/comandas, inventario y Punto de Venta con facturación.",
+        "Sistema de restaurante para la gestión de pedidos/comandas (real-time), inventario y Punto de Venta con facturación.",
       position: "Desarrollador Frontend/ScrumMaster",
       duration: "Octubre 2024 - Mayo 2025",
       subtitle: "Mi función",
       job: [
         "UI/UX con: Figma",
-        "FrontEnd desarrollado con: Vue | Tanstack",
+        "FrontEnd desarrollado con: Vue | Tanstack | Websocket",
         "Lider y Scrum Master del proyecto",
       ],
     },
