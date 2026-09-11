@@ -94,17 +94,6 @@ const projectsData = [
     category: "dev",
   },
   {
-    num: "06",
-    title: "English Vocabulary",
-    description:
-      "Plantaforma personal que facilita expadir el vocabulario en ingles de una forma fácil y organizada. Cuenta con un diseño que permite no solo ver las distintas traducciones de una palabra si no que además vicurlarlo sus sinónimos. También cuenta con un aparatado para almacenar tus frases favoritas.",
-    stack: [{ name: "React" }, { name: "Redux" }],
-    image: "/assets/work/english.png",
-    live: "",
-    github: "https://github.com/dav24github/english-words",
-    category: "dev",
-  },
-  {
     num: "01",
     title: "AM Consultoria de salud",
     description:
