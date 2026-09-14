@@ -10,13 +10,21 @@ import {
   FaAngular,
   FaVuejs,
 } from "react-icons/fa";
-import { SiNextdotjs, SiFlutter, SiKotlin } from "react-icons/si";
+import {
+  SiNextdotjs,
+  SiFlutter,
+  SiKotlin,
+  SiNestjs,
+  SiPrisma,
+} from "react-icons/si";
 
 // about data
 const about = {
   title: "Acerca de mi",
-  description:
-    "Soy desarrollador de software con más de 5 años de experiencia, licenciado en Ciencia de la Computación con excelencia académica y enfocado principalmente en el desarrollo web y móvil. Me impulsa la pasión por aprender y el compromiso de compartir mis habilidades con los demás.",
+  descriptions: [
+    `Software Engineer especializado en desarrollo Frontend, aplicaciones móviles y diseño de interfaces con más de 3 años de experiencia construyendo productos SaaS escalables y soluciones digitales para distintos sectores. He participado en la evolución de plataformas empresariales de recursos humanos, planillas, asistencia, facturación y soluciones comerciales, liderando migraciones arquitectónicas, creación de Design Systems, optimización de procesos y expansión internacional de productos.`,
+    `Combino ingeniería, liderazgo técnico y diseño de producto para crear soluciones escalables, mantenibles y orientadas al usuario. Actualmente, busco fortalecer mi perfil consolidando conocimientos en desarrollo backend, bases de datos y arquitectura de sistemas (System Design) para soluciones más robustas de extremo a extremo, mientras incorporo herramientas y metodologías impulsadas por inteligencia artificial para mejorar la productividad, la calidad del código y la toma de decisiones técnicas.`,
+  ],
   info: [
     {
       fieldName: "Nombre",
@@ -162,6 +170,22 @@ const skills = {
       name: "node.js",
     },
     {
+      icon: <SiNestjs />,
+      name: "nest.js",
+    },
+    {
+      icon: <DiPostgresql />,
+      name: "postgres",
+    },
+    {
+      icon: <DiMongodb />,
+      name: "mongodb",
+    },
+    {
+      icon: <SiPrisma />,
+      name: "prisma",
+    },
+    {
       icon: <SiFlutter />,
       name: "flutter",
     },
@@ -190,6 +214,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import Experience from "@/components/Experience";
 import { getMyExperienceYears } from "@/utils/date";
+import { DiMongodb, DiPostgresql } from "react-icons/di";
 
 const Resume = () => {
   const experienceCol1 = experience.items.slice(
@@ -367,8 +392,13 @@ const Resume = () => {
             >
               <div className="flex flex-col gap-[30px] pb-10">
                 <h3 className="text-4xl font-bold">{about.title}</h3>
-                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
-                  {about.description}
+                <p className="w-full text-white/60 mx-auto xl:mx-0">
+                  {about.descriptions.map((obj) => (
+                    <>
+                      {obj}
+                      <br />
+                    </>
+                  ))}
                 </p>
                 <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px] mx-auto xl:mx-0">
                   {about.info.map((item, index) => {

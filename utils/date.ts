@@ -1,1 +1,1 @@
-export const getMyExperienceYears = () => new Date().getFullYear() - 2021;
+export const getMyExperienceYears = () => new Date().getFullYear() - 2022;
