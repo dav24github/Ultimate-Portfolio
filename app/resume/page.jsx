@@ -22,7 +22,7 @@ import {
 const about = {
   title: "Acerca de mi",
   descriptions: [
-    `Software Engineer especializado en desarrollo Frontend, aplicaciones móviles y diseño de interfaces con más de 3 años de experiencia construyendo productos SaaS escalables y soluciones digitales para distintos sectores. He participado en la evolución de plataformas empresariales de recursos humanos, planillas, asistencia, facturación y soluciones comerciales, liderando migraciones arquitectónicas, creación de Design Systems, optimización de procesos y expansión internacional de productos.`,
+    `Software Engineer especializado en desarrollo Frontend, aplicaciones móviles y diseño de interfaces con más de 4 años de experiencia construyendo productos SaaS escalables y soluciones digitales para distintos sectores. He participado en la evolución de plataformas empresariales de recursos humanos, planillas, asistencia, facturación y soluciones comerciales, liderando migraciones arquitectónicas, creación de Design Systems, optimización de procesos y expansión internacional de productos.`,
     `Combino ingeniería, liderazgo técnico y diseño de producto para crear soluciones escalables, mantenibles y orientadas al usuario. Actualmente, busco fortalecer mi perfil consolidando conocimientos en desarrollo backend, bases de datos y arquitectura de sistemas (System Design) para soluciones más robustas de extremo a extremo, mientras incorporo herramientas y metodologías impulsadas por inteligencia artificial para mejorar la productividad, la calidad del código y la toma de decisiones técnicas.`,
   ],
   info: [
