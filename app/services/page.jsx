@@ -6,7 +6,7 @@ const services = [
     title: "Desarrollo Web",
     slug: "web-dev",
     summary:
-      "Me gusta programar cosas desde cero, y disfruto mucho llevar mis ideas a la reliadad en el navegador",
+      "Construyo aplicaciones web de principio a fin, desde la interfaz hasta la API y la base de datos.",
     description: (
       <div className="container">
         <img
@@ -19,20 +19,16 @@ const services = [
           className="img-icon"
         />
         <div>
-          <p>¡Transforma tus ideas en realidad!</p>
           <p>
-            Programo lo que tengas en mente desde el concepto hasta su
-            lanzamiento: Sistemas CRM, ERP, Tiendas online (Ecommerce) y
-            Aplicaciones Web en general.
+            He desarrollado sistemas de gestión, plataformas SaaS y
+            aplicaciones a medida que hoy usan empresas en 4 países. Trabajo
+            con React, Angular, Vue y TypeScript en el frontend, y Node.js con
+            bases de datos SQL en el backend.
           </p>
           <br />
           <p>
-            Es importante que tu aplicación web funcione correctamente
-            independientemente del navegador o dispositivo que esté usando tu
-            audiencia. Antes del lanzamiento, Se probará en las últimas
-            versiones de los principales navegadores y en una variedad de
-            dispositivos móviles para garantizar que se vea y funcione
-            correctamente.
+            Pruebo cada entrega en los principales navegadores y dispositivos
+            antes de salir a producción.
           </p>
         </div>
       </div>
@@ -40,7 +36,7 @@ const services = [
   },
   {
     num: "02",
-    title: "Diseño Web",
+    title: "Diseño de interfaces",
     slug: "web-design",
     summary:
       "Valoro una estructura de contenido simple, patrones de diseño limpios e interacciones bien pensadas.",
@@ -56,16 +52,10 @@ const services = [
           className="img-icon"
         />
         <div>
-          <p>¿Necesitas una página web?</p>
           <p>
-            Puedo ofrecerte el tipo de solución que se ajuste más a tu negocio o
-            emprendimiento: Sitios Web institucional, Portafolio, Blog, Landing
-            Page, Catálogo de productos, Página informativas, etc.
-          </p>
-          <br />
-          <p>
-            Con un diseño completamente personalizado y adaptable para todo tipo
-            de dispositivos (Responsive).
+            Diseño interfaces claras y responsive que funcionan igual de bien en
+            escritorio y móvil. Paso de un diseño en Figma a componentes
+            reutilizables y fáciles de mantener.
           </p>
         </div>
       </div>
@@ -76,7 +66,7 @@ const services = [
     title: "Desarrollo Móvil",
     slug: "app-dev",
     summary:
-      "Una de mis habilidades más recientes. Me he enfocado en desarrollar aplicaciones que sean rápidas, fáciles de usar y con un diseño elegante.",
+      "Desarrollo aplicaciones móviles rápidas, fáciles de usar y con un diseño elegante.",
     description: (
       <div className="container">
         <img
@@ -90,14 +80,9 @@ const services = [
         />
         <div>
           <p>
-            Una aplicación móvil puede ofrecerte un rendimiento más rápido, una
-            mejor experiencia de usuario y funcionar sin conexión. Además de
-            acceder a funciones nativas del dispositivo, como la cámara o el
-            GPS.
-          </p>
-          <p>
-            Dependiendo de lo que estás buscando esta puede ser la solución para
-            tí.
+            Desarrollo apps móviles con Flutter que acceden a funciones nativas
+            del dispositivo, como la cámara o el GPS, y que siguen funcionando
+            sin conexión.
           </p>
         </div>
       </div>

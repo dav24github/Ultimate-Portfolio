@@ -30,12 +30,12 @@ const projectsData = [
     num: "01",
     title: "Tekov",
     description:
-      "Software que simplifica (automatiza) los procesos adminitrativos de recursos humanos de una organización. Cubre una amplia gama de funciones como ser: manejo de la infomación de los trabajadores, asistencias, planillas de sueldo, indemnizaciones, reportes, entre otros.",
+      "Plataforma SaaS de RR. HH., control de asistencia y planillas usada en 4 países. Fui el desarrollador principal de la web: lideré su migración a TypeScript sin detener el servicio, diseñé en Figma la mayoría de sus pantallas y desarrollé el panel interno de administración.",
     stack: [
       { name: "React" },
+      { name: "TypeScript" },
+      { name: "Redux Toolkit" },
       { name: "Material UI" },
-      { name: "Redux" },
-      { name: "Figma" },
     ],
     image: "/assets/work/tekov.png",
     live: "https://app.tekovhr.com",
@@ -45,14 +45,14 @@ const projectsData = [
   },
   {
     num: "02",
-    title: "Io Software - Restaurante",
+    title: "Punto de venta para restaurantes",
     description:
-      "Sistema ERP desarrollado para el negocio de Restaurantes que cubre sus diversos flujos de información y control de servicios a sus clientes, incluyendo Punto de Venta (real-time) + Facturación, control de inventario, reportes, entre otros.",
+      "Desarrollado en IO Software como líder técnico del frontend. Modernización de un punto de venta en producción: venta rápida, mesas, comandas en tiempo real con cocina, cobro, caja y facturación electrónica.",
     stack: [
-      { name: "Vue" },
-      { name: "TanStack" },
+      { name: "Vue 3" },
+      { name: "TypeScript" },
+      { name: "Pinia" },
       { name: "WebSocket" },
-      { name: "Figma" },
     ],
     image: "/assets/work/io-system.JPG",
     live: "",
@@ -62,9 +62,38 @@ const projectsData = [
   },
   {
     num: "03",
-    title: "Clinic App",
+    title: "Marketplace agropecuario",
     description:
-      "Sistema ERP que permite controlar los diversos flujos de información de una clínica dental. Actividades diarias como la contabilidad, el aprovisionamiento, el cumplimiento de servicios y las operaciones de la cadena de suministro, son alguna de las cosas que incluye este software.",
+      "Plataforma para que productores de Tarabuco vendan directamente a los consumidores. Sobre la base de un colaborador, desarrollé el módulo de administración de punta a punta: endpoints y consultas del dashboard, panel, productos con varias imágenes y notificaciones en tiempo real.",
+    stack: [
+      { name: "NestJS" },
+      { name: "TypeORM" },
+      { name: "PostgreSQL" },
+      { name: "Angular" },
+      { name: "Socket.io" },
+    ],
+    image: "/assets/work/campo-conectado-banner.png",
+    live: "",
+    github: "",
+    category: "dev",
+  },
+  {
+    num: "04",
+    title: "Eventbrite Clone · Base de datos",
+    description:
+      "Proyecto personal en desarrollo. Diseño en PostgreSQL de la capa de datos de una plataforma de venta de entradas a partir de reglas de negocio: restricciones y triggers, reserva con bloqueo de filas para evitar la sobreventa y pruebas por cada regla.",
+    stack: [{ name: "PostgreSQL" }, { name: "SQL" }],
+    image: "/assets/work/Eventbrite-clone-screenshoot.png",
+    imageClassName: "block mx-auto",
+    live: "",
+    github: "https://github.com/dav24github/event-brite-clone",
+    category: "dev",
+  },
+  {
+    num: "05",
+    title: "SaaS para clínicas dentales",
+    description:
+      "Desarrollado en Clan Bolivia (cliente bajo confidencialidad). Reconstruí el frontend de un SaaS para clínicas dentales: pacientes, odontograma, tratamientos, agenda, laboratorios y membresías.",
     stack: [{ name: "Angular" }, { name: "PrimeNG" }, { name: "Supabase" }],
     image: "/assets/work/clinicapp.png",
     live: "",
@@ -72,22 +101,22 @@ const projectsData = [
     category: "dev",
   },
   {
-    num: "04",
-    title: "Jelpi",
+    num: "06",
+    title: "Sistema para servicios de limpieza",
     description:
-      "Sistema ERP desarrollado para el negocio de Limpieza “JELPI” que cubre sus diversos flujos de información y control de servicios a sus clientes.",
-    stack: [{ name: "Angular" }, { name: "PrimeNG" }, { name: "Supabase" }],
+      "Desarrollado en Clan Bolivia (cliente bajo confidencialidad). Frontend de un sistema de gestión para una empresa de limpieza: paquetes, solicitudes, ventas, asignación de trabajos y calendario.",
+    stack: [{ name: "Angular" }, { name: "PrimeNG" }],
     image: "/assets/work/jelpi.png",
     live: "",
     github: "",
     category: "dev",
   },
   {
-    num: "05",
-    title: "Espino",
+    num: "07",
+    title: "Sistema para un lubricentro",
     description:
-      "Sistema ERP desarrollado para el negocio Multiservicio y Lubricantes para Autos “ESPINO”. Gestiona sus diversos flujos de información y control de servicios a sus clientes y adicionalmente cuenta con un apartado para administrar una tiendita de abarrotes.",
-    stack: [{ name: "Angular" }, { name: "PrimeNG" }, { name: "Supabase" }],
+      "Desarrollado en Clan Bolivia (cliente bajo confidencialidad). Frontend de un sistema de gestión para un lubricentro con tienda: servicios por vehículo, ventas, compras y presupuestos.",
+    stack: [{ name: "Angular" }, { name: "PrimeNG" }, { name: "NgRx" }],
     image: "/assets/work/espino.png",
     live: "",
     github: "",
@@ -95,9 +124,9 @@ const projectsData = [
   },
   {
     num: "01",
-    title: "AM Consultoria de salud",
+    title: "AM Consultoría de salud",
     description:
-      "Sitio web responsive para la Consultora y Asesora en salud “AM”.",
+      "Sitio web corporativo y responsive para una consultora de asesoría en salud.",
     stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Javascript" }],
     image: "/assets/work/am.png",
     live: "",
@@ -106,20 +135,20 @@ const projectsData = [
   },
   {
     num: "02",
-    title: "Catalogo web",
+    title: "Catálogo web",
     description:
       "Sitio web para negocio de scrapbook y manualidades donde se pueda ofrecer productos y contactar con los clientes (blog incluido).",
     stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Javascript" }],
     image: "/assets/work/rossel.png",
     live: "",
-    github: "https://github.com/dav24github/Rossel",
+    github: "",
     category: "design",
   },
   {
     num: "03",
     title: "Blog de programación",
     description:
-      "Sitio web de blog con SEO optimizado y desarrollado con SSG (Static Site Generation) que simplifica su desarrollo y matenimiento.",
+      "Sitio web de blog con SEO optimizado y desarrollado con SSG (Static Site Generation) que simplifica su desarrollo y mantenimiento.",
     stack: [{ name: "Next.js" }, { name: "Tailwind.css" }],
     image: "/assets/work/code-blog.png",
     live: "",
@@ -130,8 +159,8 @@ const projectsData = [
     num: "01",
     title: "Tekov App",
     description:
-      "Aplicación móvil desarrollada para los trabajadores gestionados en el sistema web Tekov. Sus funciones permiten al trabajador consultar sus  horarios, marcar asistencia, enviar solicitudes de permiso, generar boletas de pago, entre otros.",
-    stack: [{ name: "Flutter" }],
+      "App de los trabajadores de Tekov: marcaje de asistencia con geolocalización y huella, horarios, solicitudes de permiso y boletas de pago. Colaboré en su desarrollo.",
+    stack: [{ name: "Flutter" }, { name: "Provider" }],
     image: "/assets/work/tekov-movil.png",
     live: "",
     github: "",
@@ -139,9 +168,21 @@ const projectsData = [
   },
   {
     num: "02",
-    title: "Clinic App Movil",
+    title: "Tekov Tablet",
     description:
-      "Aplicación móvil destinada para los clientes de una clinica dental donde puedan conocer a los doctores con los que cuenta la clínica y reservar una cita.",
+      "App de kiosco para marcar asistencia desde una tablet fija en la empresa: el trabajador ingresa su documento, elige su turno del día y marca. La creé desde cero.",
+    stack: [{ name: "Flutter" }],
+    image: "/assets/work/tekov-tablet.jpg",
+    imageClassName: "block mx-auto",
+    live: "",
+    github: "",
+    category: "phone",
+  },
+  {
+    num: "03",
+    title: "App para clínicas dentales",
+    description:
+      "Desarrollada en Clan Bolivia (cliente bajo confidencialidad). Prototipo de app para los pacientes de una clínica dental: conocer a los doctores y reservar una cita.",
     stack: [{ name: "FlutterFlow" }],
     image: "/assets/work/clinicapp-movil.png",
     live: "",
@@ -149,10 +190,10 @@ const projectsData = [
     category: "phone",
   },
   {
-    num: "03",
-    title: "Espino App",
+    num: "04",
+    title: "App para un lubricentro",
     description:
-      "Aplicación móvil del negocio “ESPINO” que permite a sus clientes poder registrar sus automóviles (marca, modelo, tipo de aceite, filtro, combustible, ect.), hacer un control periodico de mantenimiento y agendar un visita. Además cuenta con un apartado para la compra de productos (carrito de compras)",
+      "Desarrollada en Clan Bolivia (cliente bajo confidencialidad). Prototipo de app para los clientes de un lubricentro: registrar sus vehículos, controlar el mantenimiento, agendar visitas y comprar productos.",
     stack: [{ name: "FlutterFlow" }],
     image: "/assets/work/espino-movil.png",
     live: "",
@@ -274,7 +315,7 @@ const Work = () => {
                 {project.num}
               </div>
               {/* project title */}
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500">
                 {project.title}
               </h2>
               {/* project description */}
@@ -362,7 +403,7 @@ const Work = () => {
                           <img
                             src={project.image}
                             // fill
-                            className="object-cover h-full"
+                            className={cn("object-cover h-full", project.imageClassName)}
                             alt=""
                           />
                         </div>

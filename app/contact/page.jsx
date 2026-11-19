@@ -29,16 +29,18 @@ const info = [
     icon: <FaWhatsapp />,
     title: "Teléfono",
     description: "(+591) 72874083",
+    href: "https://wa.me/59172874083",
   },
   {
     icon: <FaEnvelope />,
     title: "Correo",
     description: "davidthbsossa@gmail.com",
+    href: "mailto:davidthbsossa@gmail.com",
   },
   {
     icon: <FaMapMarkerAlt />,
     title: "Ubicación",
-    description: "Sucre, Bolivia",
+    description: "Sucre, Bolivia · Remoto",
   },
 ];
 
@@ -53,6 +55,7 @@ const ContactPage = () => {
   const [error, setError] = useState(false);
   const [confirmation, setConfirmation] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [sendError, setSendError] = useState(false);
   const topic = useRef();
   const firstName = useRef();
   const lastname = useRef();
@@ -65,21 +68,13 @@ const ContactPage = () => {
       firstName.current.value !== "" &&
       lastname.current.value !== "" &&
       topic.current.textContent !== "" &&
-      topic.current.textContent !== "Selecciona un servicio" &&
+      topic.current.textContent !== "¿Sobre qué quieres hablar?" &&
       email.current.value !== "" &&
-      phone.current.value !== "" &&
       description.current.value !== ""
     ) {
       setError(false);
+      setSendError(false);
       setLoading(true);
-      console.log(
-        firstName.current.value,
-        lastname.current.value,
-        topic.current.textContent,
-        email.current.value,
-        phone.current.value,
-        description.current.value,
-      );
       fetch("https://formsubmit.co/ajax/davidthbsossa@gmail.com", {
         method: "POST",
         headers: {
@@ -97,6 +92,9 @@ const ContactPage = () => {
       })
         .then((response) => response.json())
         .then((data) => {
+          if (data.success === false || data.success === "false") {
+            throw new Error(data.message);
+          }
           setLoading(false);
           setConfirmation(true);
 
@@ -104,7 +102,10 @@ const ContactPage = () => {
             setConfirmation(false);
           }, 6000);
         })
-        .catch((error) => console.log(error));
+        .catch(() => {
+          setLoading(false);
+          setSendError(true);
+        });
     } else {
       setError(true);
     }
@@ -129,8 +130,8 @@ const ContactPage = () => {
             >
               <h3 className="text-4xl text-accent">Ponte en contacto</h3>
               <p className="text-white/60">
-                Si tienes alguna pregunta o simplemente quieres saludar, ¡haré
-                todo lo posible por responderte!
+                Si tienes una oferta de trabajo, un proyecto o simplemente
+                quieres saludar, te responderé lo antes posible.
               </p>
               {/* input */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -154,7 +155,7 @@ const ContactPage = () => {
                 />
                 <Input
                   type="phone"
-                  placeholder="Número de teléfono"
+                  placeholder="Número de teléfono (opcional)"
                   ref={phone}
                   onChange={() => setError(false)}
                 />
@@ -166,24 +167,30 @@ const ContactPage = () => {
                   search == "web-dev"
                     ? "Desarrollo Web"
                     : search === "web-design"
-                      ? "Diseño UI/UX"
+                      ? "Diseño de interfaces"
                       : search === "app-dev"
                         ? "Desarrollo Móvil"
                         : ""
                 }
               >
                 <SelectTrigger ref={topic} className="w-full">
-                  <SelectValue placeholder="Selecciona un servicio" />
+                  <SelectValue placeholder="¿Sobre qué quieres hablar?" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
+                    <SelectItem value="Oferta de empleo">
+                      Oferta de empleo
+                    </SelectItem>
                     <SelectItem value="Desarrollo Web">
                       Desarrollo Web
                     </SelectItem>
-                    <SelectItem value="Diseño UI/UX">Diseño UI/UX</SelectItem>
+                    <SelectItem value="Diseño de interfaces">
+                      Diseño de interfaces
+                    </SelectItem>
                     <SelectItem value="Desarrollo Móvil">
                       Desarrollo Móvil
                     </SelectItem>
+                    <SelectItem value="Otro">Otro</SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
@@ -201,7 +208,7 @@ const ContactPage = () => {
                     size="md"
                     className="min-w-40 h-[48px] flex justify-center items-center"
                   >
-                    Loading...
+                    Enviando...
                   </span>
                 ) : (
                   <Button size="md" className="min-w-40">
@@ -219,6 +226,11 @@ const ContactPage = () => {
                     ¡Completa todos los campos!
                   </p>
                 )}
+                {sendError && (
+                  <p className="text-xs text-[#fe4d5f]">
+                    No se pudo enviar. Escríbeme a davidthbsossa@gmail.com
+                  </p>
+                )}
               </div>
             </form>
           </div>
@@ -231,12 +243,12 @@ const ContactPage = () => {
                     key={index}
                     className={cn(
                       "flex items-center gap-6",
-                      item.title === "Teléfono"
+                      item.href
                         ? "cursor-pointer hover:bg-[#27272c] rounded-md transition-all duration-300"
                         : "cursor-default pointer-events-none",
                     )}
-                    target="_black"
-                    href="https://wa.me/59172874083"
+                    target={item.href?.startsWith("http") ? "_blank" : undefined}
+                    href={item.href ?? "#"}
                   >
                     <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-[#27272c] text-accent rounded-md flex items-center justify-center">
                       <div className="text-[28px]">{item.icon}</div>

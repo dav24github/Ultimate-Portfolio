@@ -16,7 +16,7 @@ const Modal = ({ title, description, slug }) => (
     <Dialog.Portal>
       <Dialog.Overlay className="DialogOverlay" />
       <Dialog.Content className="DialogContent">
-        <div class="flex flex-col">
+        <div className="flex flex-col">
           <Dialog.Title className="DialogTitle">
             <span className="text-xl">{title}</span>
             <Dialog.Close asChild>
@@ -40,7 +40,7 @@ const Modal = ({ title, description, slug }) => (
             }}
           >
             <Link className="link-action" href={`/contact?q=${slug}`}>
-              <Button className="btn-action">Consultar</Button>
+              <Button className="btn-action">Contáctame</Button>
             </Link>
           </div>
         </div>

@@ -9,12 +9,16 @@ const stats = [
     text: "Años de experiencia",
   },
   {
-    num: 22,
-    text: "Projectos completados",
+    num: 18,
+    text: "Proyectos completados",
   },
   {
-    num: 11,
-    text: "Tecnologías dominadas",
+    num: 4,
+    text: "Países con mi software en producción",
+  },
+  {
+    num: 3,
+    text: "Empresas de software",
   },
 ];
 

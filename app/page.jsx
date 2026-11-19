@@ -31,7 +31,7 @@ const Home = () => {
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">
               Me destaco en la creación de experiencias digitales elegantes a
-              través diversos lenguajes y tecnologías de programación.
+              través de diversos lenguajes y tecnologías de programación.
             </p>
             {/* btn and socials */}
             <div className="flex flex-col xl:flex-row items-center gap-8">

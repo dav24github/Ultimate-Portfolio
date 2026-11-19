@@ -9,21 +9,22 @@ import {
   FaNodeJs,
   FaAngular,
   FaVuejs,
+  FaGitAlt,
 } from "react-icons/fa";
 import {
   SiNextdotjs,
   SiFlutter,
-  SiKotlin,
   SiNestjs,
-  SiPrisma,
+  SiTypescript,
+  SiTailwindcss,
 } from "react-icons/si";
 
 // about data
 const about = {
   title: "Acerca de mi",
   descriptions: [
-    `Software Engineer especializado en desarrollo Frontend, aplicaciones móviles y diseño de interfaces con más de 4 años de experiencia construyendo productos SaaS escalables y soluciones digitales para distintos sectores. He participado en la evolución de plataformas empresariales de recursos humanos, planillas, asistencia, facturación y soluciones comerciales, liderando migraciones arquitectónicas, creación de Design Systems, optimización de procesos y expansión internacional de productos.`,
-    `Combino ingeniería, liderazgo técnico y diseño de producto para crear soluciones escalables, mantenibles y orientadas al usuario. Actualmente, busco fortalecer mi perfil consolidando conocimientos en desarrollo backend, bases de datos y arquitectura de sistemas (System Design) para soluciones más robustas de extremo a extremo, mientras incorporo herramientas y metodologías impulsadas por inteligencia artificial para mejorar la productividad, la calidad del código y la toma de decisiones técnicas.`,
+    `Soy ingeniero de software fullstack con ${getMyExperienceYears()} años desarrollando aplicaciones web y móviles en producción. Fui el desarrollador principal de la web de un SaaS usado en 4 países, donde lideré su migración a TypeScript sin detener el servicio, y coordiné un equipo frontend como líder técnico y Scrum Master. Trabajo con React, Angular, Vue y TypeScript en el frontend, Node.js, NestJS y PostgreSQL en el backend, y Flutter en móvil. También diseño en Figma las interfaces que construyo.`,
+    `Me gusta construir productos claros, mantenibles y fáciles de usar. Trabajo en remoto y uso IA a diario, revisando lo que genera.`,
   ],
   info: [
     {
@@ -52,7 +53,7 @@ const about = {
     },
     {
       fieldName: "Idiomas",
-      fieldValue: "Español, Ingles",
+      fieldValue: "Español (nativo), Inglés",
     },
   ],
 };
@@ -66,47 +67,51 @@ const experience = {
     {
       company: "Tekov",
       description:
-        "Startup dedicada al desarrollo un software para la automatización de los procesos administrativos de recursos humanos.",
-      position: "Desarrollador Front/Móvil",
-      duration: "Noviembre 2022 - Presente",
+        "SaaS de RR. HH., control de asistencia y planillas usado en 4 países. Fui el desarrollador principal de la web.",
+      position: "Desarrollador Frontend & Móvil",
+      duration: "Noviembre 2022 - Octubre 2026",
       subtitle: "Mi función",
       job: [
-        "UI/UX con: Figma",
-        "FrontEnd desarrollado con: React JS | Material UI | Redux",
-        "App Móvil (Marcaje, Horarios, Solicitudes, entre otros) desarrollado con: Flutter",
+        "Migración del frontend a TypeScript sin detener el servicio",
+        "Frontend con: React | TypeScript | Redux Toolkit | Material UI",
+        "Diseño de pantallas en Figma, despliegues y marcaje con huella en la app (Flutter)",
       ],
     },
     {
       company: "IO Software",
       description:
-        "Sistema de restaurante para la gestión de pedidos/comandas (real-time), inventario y Punto de Venta con facturación.",
-      position: "Desarrollador Frontend/ScrumMaster",
-      duration: "Octubre 2024 - Mayo 2025",
+        "Modernización de un punto de venta para restaurantes: comandas en tiempo real, cobro, caja y facturación electrónica.",
+      position: "Lead Frontend",
+      duration: "Octubre 2024 - Junio 2025",
       subtitle: "Mi función",
       job: [
-        "UI/UX con: Figma",
-        "FrontEnd desarrollado con: Vue | Tanstack | Websocket",
-        "Lider y Scrum Master del proyecto",
+        "Líder técnico del frontend y Scrum Master",
+        "Diseño y desarrollo del núcleo del punto de venta",
+        "Frontend con: Vue 3 | TypeScript | Pinia | TanStack Query | WebSocket",
       ],
-    },
-    {
-      company: "AM Consultora y Asesora en salud",
-      position: "Diseñador Web Freelance",
-      duration: "Octubre - Noviembre 2023",
     },
     {
       company: "Clan Bolivia",
       description:
-        "Consultora de software con clientes en Bolivia y Guatemala.",
-      position: "Desarrollador Front/Móvil",
-      duration: "Diciembre 2022 - Marzo 2023",
-      subtitle: "Proyectos completados",
+        "Software a medida para distintos clientes (bajo confidencialidad). Trabajé con el dueño de la empresa, que llevaba el backend.",
+      position: "Desarrollador Frontend Jr",
+      duration: "Diciembre 2022 - Abril 2024",
+      subtitle: "Proyectos",
       job: [
-        "Sistema de gestion (ERP) para la empresa de limpieza “JELPI” con: Angular | PrimeNG",
-        "Sistema de gestion (ERP) para la empresa de mantenimiento de autos “ESPINO” con: Angular | PrimeNG",
-        "Sistema de gestion (ERP) para la empresa de delivery “GOBOX” con: Angular | PrimeNG",
-        "Sistema de gestion (ERP) para clínicas dentales. “ClinicAPP” con: Angular | PrimeNG | Supabase",
-        "App movil para clínicas dentales. “ClinicAPP” con: FlutterFlow | Supabase",
+        "SaaS para clínicas dentales con: Angular | PrimeNG | Supabase",
+        "Sistemas a medida para logística, servicios de limpieza y un lubricentro con: Angular | PrimeNG | NgRx",
+        "Prototipos de apps móviles con: FlutterFlow",
+      ],
+    },
+    {
+      company: "Proyectos freelance",
+      description: "Proyectos web para clientes y colaboradores.",
+      position: "Desarrollador Web Freelance",
+      duration: "Octubre 2023 - Febrero 2025",
+      subtitle: "Proyectos",
+      job: [
+        "Marketplace agropecuario (2025): módulo de administración de punta a punta con: NestJS | TypeORM | PostgreSQL | Angular | Socket.io",
+        "Sitio web corporativo para una consultora de salud (2023) con: HTML | CSS | JavaScript",
       ],
     },
   ],
@@ -115,19 +120,22 @@ const experience = {
 // education data
 const education = {
   icon: "/assets/resume/cap.svg",
-  title: "Mi education",
+  title: "Mi educación",
   description: "",
   items: [
     {
       institution: "UMRPSFXCH | Sucre, Bolivia",
       degree: "Ingeniería en Ciencias de la Computación",
       duration: "Julio 2021",
-      description: "Excelencia Académica (R.A: 81,37)",
+      descriptions: [
+        "Excelencia Académica (R.A: 81,37)",
+        "Beca Estudio por rendimiento académico (2016 – 2018)",
+      ],
     },
     {
       institution: "UMRPSFXCH | Sucre, Bolivia",
       degree: "Diplomado en Docencia para Educación Superior",
-      duration: "Noviembre 2021",
+      duration: "Noviembre 2022",
     },
   ],
 };
@@ -144,6 +152,10 @@ const skills = {
     {
       icon: <FaCss3 />,
       name: "css 3",
+    },
+    {
+      icon: <SiTypescript />,
+      name: "typescript",
     },
     {
       icon: <FaJs />,
@@ -178,20 +190,16 @@ const skills = {
       name: "postgres",
     },
     {
-      icon: <DiMongodb />,
-      name: "mongodb",
+      icon: <SiTailwindcss />,
+      name: "tailwind css",
     },
     {
-      icon: <SiPrisma />,
-      name: "prisma",
+      icon: <FaGitAlt />,
+      name: "git",
     },
     {
       icon: <SiFlutter />,
       name: "flutter",
-    },
-    {
-      icon: <SiKotlin />,
-      name: "Kotlin",
     },
     {
       icon: <FaFigma />,
@@ -211,10 +219,10 @@ import {
 
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import Experience from "@/components/Experience";
 import { getMyExperienceYears } from "@/utils/date";
-import { DiMongodb, DiPostgresql } from "react-icons/di";
+import { DiPostgresql } from "react-icons/di";
 
 const Resume = () => {
   const experienceCol1 = experience.items.slice(
@@ -336,15 +344,16 @@ const Resume = () => {
                             {item.degree}
                           </h3>
                           <p className="text-white/60">{item.institution}</p>
-                          {item.description && (
-                            <div className="flex gap-3 mt-4">
+                          {item.descriptions?.map((text, i) => (
+                            <div
+                              key={i}
+                              className={`flex gap-3 ${i === 0 ? "mt-4" : ""}`}
+                            >
                               {/* dot */}
                               <span className="w-[6px] h-[6px] rounded-full bg-accent mt-1"></span>
-                              <p className="text-white/30 text-sm">
-                                {item.description}
-                              </p>
+                              <p className="text-white/30 text-sm">{text}</p>
                             </div>
-                          )}
+                          ))}
                         </li>
                       );
                     })}
@@ -393,11 +402,11 @@ const Resume = () => {
               <div className="flex flex-col gap-[30px] pb-10">
                 <h3 className="text-4xl font-bold">{about.title}</h3>
                 <p className="w-full text-white/60 mx-auto xl:mx-0">
-                  {about.descriptions.map((obj) => (
-                    <>
+                  {about.descriptions.map((obj, i) => (
+                    <Fragment key={i}>
                       {obj}
                       <br />
-                    </>
+                    </Fragment>
                   ))}
                 </p>
                 <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px] mx-auto xl:mx-0">
