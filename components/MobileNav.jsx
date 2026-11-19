@@ -1,13 +1,12 @@
 "use client";
 
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { CiMenuFries } from "react-icons/ci";
-import { links } from "@/lib/utils";
+import { localePath, samePath, useLang } from "@/lib/i18n";
 
 const MobileNav = () => {
-  const pathname = usePathname();
+  const { lang, t, pathname } = useLang();
 
   return (
     <Sheet>
@@ -17,7 +16,7 @@ const MobileNav = () => {
       <SheetContent className="flex flex-col">
         {/* logo */}
         <div className="mt-32 mb-40 text-center text-2xl">
-          <Link href="/">
+          <Link href={localePath(lang, "/")}>
             <h1 className="text-4xl font-semibold">
               Davs<span className="text-accent">.Hub</span>
             </h1>
@@ -25,13 +24,13 @@ const MobileNav = () => {
         </div>
         {/* nav */}
         <nav className="flex flex-col justify-center items-center gap-8">
-          {links.map((link, index) => {
+          {t.nav.map((link, index) => {
             return (
               <Link
-                href={link.path}
+                href={localePath(lang, link.path)}
                 key={index}
                 className={`${
-                  link.path === pathname &&
+                  samePath(localePath(lang, link.path), pathname) &&
                   "text-accent border-b-2 border-accent"
                 } text-xl capitalize hover:text-accent transition-all`}
               >

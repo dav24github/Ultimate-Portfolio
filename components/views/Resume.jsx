@@ -19,132 +19,8 @@ import {
   SiTailwindcss,
 } from "react-icons/si";
 
-// about data
-const about = {
-  title: "Acerca de mi",
-  descriptions: [
-    `Soy ingeniero de software fullstack con ${getMyExperienceYears()} años desarrollando aplicaciones web y móviles en producción. Fui el desarrollador principal de la web de un SaaS usado en 4 países, donde lideré su migración a TypeScript sin detener el servicio, y coordiné un equipo frontend como líder técnico y Scrum Master. Trabajo con React, Angular, Vue y TypeScript en el frontend, Node.js, NestJS y PostgreSQL en el backend, y Flutter en móvil. También diseño en Figma las interfaces que construyo.`,
-    `Me gusta construir productos claros, mantenibles y fáciles de usar. Trabajo en remoto y uso IA a diario, revisando lo que genera.`,
-  ],
-  info: [
-    {
-      fieldName: "Nombre",
-      fieldValue: "David Escalante",
-    },
-    {
-      fieldName: "Teléfono",
-      fieldValue: "(+591) 72874083",
-    },
-    {
-      fieldName: "Experiencia",
-      fieldValue: `${getMyExperienceYears()} años`,
-    },
-    {
-      fieldName: "Correo",
-      fieldValue: "davidthbsossa@gmail.com",
-    },
-    {
-      fieldName: "Nacionalidad",
-      fieldValue: "Boliviana",
-    },
-    {
-      fieldName: "Freelance",
-      fieldValue: "Disponible",
-    },
-    {
-      fieldName: "Idiomas",
-      fieldValue: "Español (nativo), Inglés",
-    },
-  ],
-};
-
-// experience data
-const experience = {
-  icon: "/assets/resume/badge.svg",
-  title: "Mi experiencia",
-  description: "",
-  items: [
-    {
-      company: "Tekov",
-      description:
-        "SaaS de RR. HH., control de asistencia y planillas usado en 4 países. Fui el desarrollador principal de la web.",
-      position: "Desarrollador Frontend & Móvil",
-      duration: "Noviembre 2022 - Octubre 2026",
-      subtitle: "Mi función",
-      job: [
-        "Migración del frontend a TypeScript sin detener el servicio",
-        "Frontend con: React | TypeScript | Redux Toolkit | Material UI",
-        "Diseño de pantallas en Figma, despliegues y marcaje con huella en la app (Flutter)",
-      ],
-    },
-    {
-      company: "IO Software",
-      description:
-        "Modernización de un punto de venta para restaurantes: comandas en tiempo real, cobro, caja y facturación electrónica.",
-      position: "Lead Frontend",
-      duration: "Octubre 2024 - Junio 2025",
-      subtitle: "Mi función",
-      job: [
-        "Líder técnico del frontend y Scrum Master",
-        "Diseño y desarrollo del núcleo del punto de venta",
-        "Frontend con: Vue 3 | TypeScript | Pinia | TanStack Query | WebSocket",
-      ],
-    },
-    {
-      company: "Clan Bolivia",
-      description:
-        "Software a medida para distintos clientes (bajo confidencialidad). Trabajé con el dueño de la empresa, que llevaba el backend.",
-      position: "Desarrollador Frontend Jr",
-      duration: "Diciembre 2022 - Abril 2024",
-      subtitle: "Proyectos",
-      job: [
-        "SaaS para clínicas dentales con: Angular | PrimeNG | Supabase",
-        "Sistemas a medida para logística, servicios de limpieza y un lubricentro con: Angular | PrimeNG | NgRx",
-        "Prototipos de apps móviles con: FlutterFlow",
-      ],
-    },
-    {
-      company: "Proyectos freelance",
-      description: "Proyectos web para clientes y colaboradores.",
-      position: "Desarrollador Web Freelance",
-      duration: "Octubre 2023 - Febrero 2025",
-      subtitle: "Proyectos",
-      job: [
-        "Marketplace agropecuario (2025): módulo de administración de punta a punta con: NestJS | TypeORM | PostgreSQL | Angular | Socket.io",
-        "Sitio web corporativo para una consultora de salud (2023) con: HTML | CSS | JavaScript",
-      ],
-    },
-  ],
-};
-
-// education data
-const education = {
-  icon: "/assets/resume/cap.svg",
-  title: "Mi educación",
-  description: "",
-  items: [
-    {
-      institution: "UMRPSFXCH | Sucre, Bolivia",
-      degree: "Ingeniería en Ciencias de la Computación",
-      duration: "Julio 2021",
-      descriptions: [
-        "Excelencia Académica (R.A: 81,37)",
-        "Beca Estudio por rendimiento académico (2016 – 2018)",
-      ],
-    },
-    {
-      institution: "UMRPSFXCH | Sucre, Bolivia",
-      degree: "Diplomado en Docencia para Educación Superior",
-      duration: "Noviembre 2022",
-    },
-  ],
-};
-
 // skills data
-const skills = {
-  title: "Mis habilidades principales",
-  description: "",
-  skillList: [
+const skillList = [
     {
       icon: <FaHtml5 />,
       name: "html 5",
@@ -205,8 +81,7 @@ const skills = {
       icon: <FaFigma />,
       name: "figma",
     },
-  ],
-};
+];
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -223,8 +98,19 @@ import { Fragment, useState } from "react";
 import Experience from "@/components/Experience";
 import { getMyExperienceYears } from "@/utils/date";
 import { DiPostgresql } from "react-icons/di";
+import { getContent } from "@/lib/i18n";
 
-const Resume = () => {
+const Resume = ({ lang }) => {
+  const t = getContent(lang).resume;
+  const years = getMyExperienceYears();
+  const about = {
+    title: t.about.title,
+    descriptions: t.about.descriptions(years),
+    info: t.about.info(years),
+  };
+  const experience = t.experience;
+  const education = t.education;
+  const skills = { ...t.skills, skillList };
   const experienceCol1 = experience.items.slice(
     0,
     Math.round(experience.items.length / 2),
@@ -280,10 +166,10 @@ const Resume = () => {
           className="flex flex-col xl:flex-row gap-[60px]"
         >
           <TabsList className="flex flex-col w-full max-w-[340px] mx-auto xl:mx-0 gap-6">
-            <TabsTrigger value="experience">Experiencia</TabsTrigger>
-            <TabsTrigger value="education">Formación</TabsTrigger>
-            <TabsTrigger value="skills">Habilidades</TabsTrigger>
-            <TabsTrigger value="about">Acerca de</TabsTrigger>
+            <TabsTrigger value="experience">{t.tabs.experience}</TabsTrigger>
+            <TabsTrigger value="education">{t.tabs.education}</TabsTrigger>
+            <TabsTrigger value="skills">{t.tabs.skills}</TabsTrigger>
+            <TabsTrigger value="about">{t.tabs.about}</TabsTrigger>
           </TabsList>
 
           {/* content */}

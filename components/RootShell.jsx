@@ -1,5 +1,5 @@
 import { JetBrains_Mono } from "next/font/google";
-import "./globals.css";
+import "@/app/globals.css";
 
 // components
 import Header from "@/components/Header";
@@ -12,15 +12,10 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrainsMono",
 });
 
-export const metadata = {
-  title: "David Escalante | Portafolio",
-  description:
-    "Portafolio de David Escalante - Desarrollador de software | Ing. en Ciencias de la Computación",
-};
-
-export default function RootLayout({ children }) {
+// Shared <html>/<body> for both root layouts: app/(es)/layout.jsx and app/(en)/layout.jsx
+export default function RootShell({ lang, children }) {
   return (
-    <html lang="en">
+    <html lang={lang}>
       <body className={jetbrainsMono.variable}>
         <Header />
         <StairTransition />

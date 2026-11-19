@@ -23,192 +23,18 @@ import { AppWindow, PhoneIcon } from "lucide-react";
 import { IoIosPhonePortrait } from "react-icons/io";
 import { FaLaptopCode } from "react-icons/fa";
 import { cn } from "@/lib/utils";
-import classes from "./page.module.scss";
+import classes from "./Work.module.scss";
+import { getContent } from "@/lib/i18n";
 
-const projectsData = [
-  {
-    num: "01",
-    title: "Tekov",
-    description:
-      "Plataforma SaaS de RR. HH., control de asistencia y planillas usada en 4 países. Fui el desarrollador principal de la web: lideré su migración a TypeScript sin detener el servicio, diseñé en Figma la mayoría de sus pantallas y desarrollé el panel interno de administración.",
-    stack: [
-      { name: "React" },
-      { name: "TypeScript" },
-      { name: "Redux Toolkit" },
-      { name: "Material UI" },
-    ],
-    image: "/assets/work/tekov.png",
-    live: "https://app.tekovhr.com",
-    github: "",
-    website: "https://tekovhr.com",
-    category: "dev",
-  },
-  {
-    num: "02",
-    title: "Punto de venta para restaurantes",
-    description:
-      "Desarrollado en IO Software como líder técnico del frontend. Modernización de un punto de venta en producción: venta rápida, mesas, comandas en tiempo real con cocina, cobro, caja y facturación electrónica.",
-    stack: [
-      { name: "Vue 3" },
-      { name: "TypeScript" },
-      { name: "Pinia" },
-      { name: "WebSocket" },
-    ],
-    image: "/assets/work/io-system.JPG",
-    live: "",
-    github: "",
-    website: "",
-    category: "dev",
-  },
-  {
-    num: "03",
-    title: "Marketplace agropecuario",
-    description:
-      "Plataforma para que productores de Tarabuco vendan directamente a los consumidores. Sobre la base de un colaborador, desarrollé el módulo de administración de punta a punta: endpoints y consultas del dashboard, panel, productos con varias imágenes y notificaciones en tiempo real.",
-    stack: [
-      { name: "NestJS" },
-      { name: "TypeORM" },
-      { name: "PostgreSQL" },
-      { name: "Angular" },
-      { name: "Socket.io" },
-    ],
-    image: "/assets/work/campo-conectado-banner.png",
-    live: "",
-    github: "",
-    category: "dev",
-  },
-  {
-    num: "04",
-    title: "Eventbrite Clone · Base de datos",
-    description:
-      "Proyecto personal en desarrollo. Diseño en PostgreSQL de la capa de datos de una plataforma de venta de entradas a partir de reglas de negocio: restricciones y triggers, reserva con bloqueo de filas para evitar la sobreventa y pruebas por cada regla.",
-    stack: [{ name: "PostgreSQL" }, { name: "SQL" }],
-    image: "/assets/work/Eventbrite-clone-screenshoot.png",
-    imageClassName: "block mx-auto",
-    live: "",
-    github: "https://github.com/dav24github/event-brite-clone",
-    category: "dev",
-  },
-  {
-    num: "05",
-    title: "SaaS para clínicas dentales",
-    description:
-      "Desarrollado en Clan Bolivia (cliente bajo confidencialidad). Reconstruí el frontend de un SaaS para clínicas dentales: pacientes, odontograma, tratamientos, agenda, laboratorios y membresías.",
-    stack: [{ name: "Angular" }, { name: "PrimeNG" }, { name: "Supabase" }],
-    image: "/assets/work/clinicapp.png",
-    live: "",
-    github: "",
-    category: "dev",
-  },
-  {
-    num: "06",
-    title: "Sistema para servicios de limpieza",
-    description:
-      "Desarrollado en Clan Bolivia (cliente bajo confidencialidad). Frontend de un sistema de gestión para una empresa de limpieza: paquetes, solicitudes, ventas, asignación de trabajos y calendario.",
-    stack: [{ name: "Angular" }, { name: "PrimeNG" }],
-    image: "/assets/work/jelpi.png",
-    live: "",
-    github: "",
-    category: "dev",
-  },
-  {
-    num: "07",
-    title: "Sistema para un lubricentro",
-    description:
-      "Desarrollado en Clan Bolivia (cliente bajo confidencialidad). Frontend de un sistema de gestión para un lubricentro con tienda: servicios por vehículo, ventas, compras y presupuestos.",
-    stack: [{ name: "Angular" }, { name: "PrimeNG" }, { name: "NgRx" }],
-    image: "/assets/work/espino.png",
-    live: "",
-    github: "",
-    category: "dev",
-  },
-  {
-    num: "01",
-    title: "AM Consultoría de salud",
-    description:
-      "Sitio web corporativo y responsive para una consultora de asesoría en salud.",
-    stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Javascript" }],
-    image: "/assets/work/am.png",
-    live: "",
-    github: "",
-    category: "design",
-  },
-  {
-    num: "02",
-    title: "Catálogo web",
-    description:
-      "Sitio web para negocio de scrapbook y manualidades donde se pueda ofrecer productos y contactar con los clientes (blog incluido).",
-    stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Javascript" }],
-    image: "/assets/work/rossel.png",
-    live: "",
-    github: "",
-    category: "design",
-  },
-  {
-    num: "03",
-    title: "Blog de programación",
-    description:
-      "Sitio web de blog con SEO optimizado y desarrollado con SSG (Static Site Generation) que simplifica su desarrollo y mantenimiento.",
-    stack: [{ name: "Next.js" }, { name: "Tailwind.css" }],
-    image: "/assets/work/code-blog.png",
-    live: "",
-    github: "https://github.com/dav24github/blog",
-    category: "design",
-  },
-  {
-    num: "01",
-    title: "Tekov App",
-    description:
-      "App de los trabajadores de Tekov: marcaje de asistencia con geolocalización y huella, horarios, solicitudes de permiso y boletas de pago. Colaboré en su desarrollo.",
-    stack: [{ name: "Flutter" }, { name: "Provider" }],
-    image: "/assets/work/tekov-movil.png",
-    live: "",
-    github: "",
-    category: "phone",
-  },
-  {
-    num: "02",
-    title: "Tekov Tablet",
-    description:
-      "App de kiosco para marcar asistencia desde una tablet fija en la empresa: el trabajador ingresa su documento, elige su turno del día y marca. La creé desde cero.",
-    stack: [{ name: "Flutter" }],
-    image: "/assets/work/tekov-tablet.jpg",
-    imageClassName: "block mx-auto",
-    live: "",
-    github: "",
-    category: "phone",
-  },
-  {
-    num: "03",
-    title: "App para clínicas dentales",
-    description:
-      "Desarrollada en Clan Bolivia (cliente bajo confidencialidad). Prototipo de app para los pacientes de una clínica dental: conocer a los doctores y reservar una cita.",
-    stack: [{ name: "FlutterFlow" }],
-    image: "/assets/work/clinicapp-movil.png",
-    live: "",
-    github: "",
-    category: "phone",
-  },
-  {
-    num: "04",
-    title: "App para un lubricentro",
-    description:
-      "Desarrollada en Clan Bolivia (cliente bajo confidencialidad). Prototipo de app para los clientes de un lubricentro: registrar sus vehículos, controlar el mantenimiento, agendar visitas y comprar productos.",
-    stack: [{ name: "FlutterFlow" }],
-    image: "/assets/work/espino-movil.png",
-    live: "",
-    github: "",
-    category: "phone",
-  },
-];
-
-const Work = () => {
+const Work = ({ lang }) => {
+  const t = getContent(lang).work;
+  const projectsData = t.projects;
   const [show, setShow] = useState(false);
   const [project, setProject] = useState();
   const [filter, setFilter] = useState("dev");
   const projects = useMemo(
     () => projectsData.filter((obj) => obj.category === filter),
-    [filter],
+    [filter, projectsData],
   );
 
   useEffect(() => {
@@ -258,7 +84,7 @@ const Work = () => {
                 filter === "dev" ? "text-white" : "text-white/40",
               )}
             >
-              Aplicaciones
+              {t.filters.dev}
             </p>
           </div>
           <div
@@ -280,7 +106,7 @@ const Work = () => {
                 filter === "design" ? "text-white" : "text-white/40",
               )}
             >
-              Páginas Web
+              {t.filters.design}
             </p>
           </div>
           <div
@@ -302,7 +128,7 @@ const Work = () => {
                 filter === "phone" ? "text-white" : "text-white/40",
               )}
             >
-              Móvil
+              {t.filters.phone}
             </p>
           </div>
         </div>
@@ -345,7 +171,7 @@ const Work = () => {
                           <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
                         </TooltipTrigger>
                         <TooltipContent>
-                          <p>Aplicación</p>
+                          <p>{t.tooltips.live}</p>
                         </TooltipContent>
                       </Tooltip>
                     </TooltipProvider>
@@ -360,7 +186,7 @@ const Work = () => {
                           <BsGithub className="text-white text-3xl group-hover:text-accent" />
                         </TooltipTrigger>
                         <TooltipContent>
-                          <p>Repositorio Github</p>
+                          <p>{t.tooltips.github}</p>
                         </TooltipContent>
                       </Tooltip>
                     </TooltipProvider>
@@ -375,7 +201,7 @@ const Work = () => {
                           <TbWorldWww className="text-white text-3xl group-hover:text-accent" />
                         </TooltipTrigger>
                         <TooltipContent>
-                          <p>Página web</p>
+                          <p>{t.tooltips.website}</p>
                         </TooltipContent>
                       </Tooltip>
                     </TooltipProvider>

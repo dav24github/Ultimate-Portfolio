@@ -7,12 +7,14 @@ import Social from "@/components/Social";
 import Photo from "@/components/Photo";
 import Stats from "@/components/Stats";
 import Link from "next/link";
+import { getContent } from "@/lib/i18n";
 
-const Home = () => {
+const Home = ({ lang }) => {
+  const t = getContent(lang).home;
   const downloadFile = () => {
     const link = document.createElement("a");
-    const linkSource = `assets/docs/David_Escalante_CV.pdf`;
-    link.download = "David_Escalante_CV.pdf";
+    const linkSource = `/${t.cvFile}`;
+    link.download = t.cvDownloadName;
     link.href = linkSource;
     link.click();
   };
@@ -23,26 +25,25 @@ const Home = () => {
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
           {/* text */}
           <div className="text-center xl:text-left order-2 xl:order-none">
-            <span className="text-xl">Software Engineer</span>
+            <span className="text-xl">{t.role}</span>
             <h1 className="h1 mb-6">
-              <span className="text-6xl"> Hola, soy </span>
+              <span className="text-6xl"> {t.greeting} </span>
               <br />
               <span className="text-accent">David Escalante</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">
-              Me destaco en la creación de experiencias digitales elegantes a
-              través de diversos lenguajes y tecnologías de programación.
+              {t.intro}
             </p>
             {/* btn and socials */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
-              <Link target="_blank" href="assets/docs/David_Escalante_CV.pdf">
+              <Link target="_blank" href={`/${t.cvFile}`}>
                 <Button
                   variant="outline"
                   size="lg"
                   className="uppercase flex items-center gap-2"
                   onClick={downloadFile}
                 >
-                  <span>Descargar CV</span>
+                  <span>{t.downloadCv}</span>
                   <FiDownload className="text-xl" />
                 </Button>
               </Link>
@@ -60,7 +61,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <Stats />
+      <Stats lang={lang} />
     </section>
   );
 };

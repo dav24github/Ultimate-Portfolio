@@ -2,27 +2,17 @@
 
 import { getMyExperienceYears } from "@/utils/date";
 import CountUp from "react-countup";
+import { getContent } from "@/lib/i18n";
 
-const stats = [
-  {
-    num: getMyExperienceYears(),
-    text: "Años de experiencia",
-  },
-  {
-    num: 18,
-    text: "Proyectos completados",
-  },
-  {
-    num: 4,
-    text: "Países con mi software en producción",
-  },
-  {
-    num: 3,
-    text: "Empresas de software",
-  },
+const getStats = (t) => [
+  { num: getMyExperienceYears(), text: t.years },
+  { num: 18, text: t.projects },
+  { num: 4, text: t.countries },
+  { num: 3, text: t.companies },
 ];
 
-const Stats = () => {
+const Stats = ({ lang }) => {
+  const stats = getStats(getContent(lang).home.stats);
   return (
     <section className="pt-4 pb-12 xl:pt-0 xl:pb-0">
       <div className="container mx-auto">

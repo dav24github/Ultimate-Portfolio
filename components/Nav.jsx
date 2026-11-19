@@ -1,20 +1,19 @@
 "use client";
 
-import { links } from "@/lib/utils";
+import { localePath, samePath, useLang } from "@/lib/i18n";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 const Nav = () => {
-  const pathname = usePathname();
+  const { lang, t, pathname } = useLang();
   return (
     <nav className="flex gap-8">
-      {links.map((link, index) => {
+      {t.nav.map((link, index) => {
         return (
           <Link
-            href={link.path}
+            href={localePath(lang, link.path)}
             key={index}
             className={`${
-              link.path === pathname && "text-accent border-b-2 border-accent"
+              samePath(localePath(lang, link.path), pathname) && "text-accent border-b-2 border-accent"
             } capitalize font-medium hover:text-accent transition-all`}
           >
             {link.label}
